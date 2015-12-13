@@ -9,6 +9,41 @@ SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
+DROP DATABASE "WSE_development";
+--
+-- Name: WSE_development; Type: DATABASE; Schema: -; Owner: WSE
+--
+
+CREATE DATABASE "WSE_development" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'UTF-8';
+
+
+ALTER DATABASE "WSE_development" OWNER TO "WSE";
+
+\connect "WSE_development"
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: piotrpawlus
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO piotrpawlus;
+
+--
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: piotrpawlus
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
