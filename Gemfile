@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
+# Use on a 64-bit version of Ruby on Windows
 gem 'tzinfo-data'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -45,4 +45,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
