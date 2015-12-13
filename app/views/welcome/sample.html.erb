@@ -12,5 +12,11 @@
   <h1>WYPOZYCZALNIA SPRZETU ELEKTRONICZNEGO</h1>
   <p>Find me in app/views/welcome/sample.html.erb</p>
 
+  <%= "Message from controller: #{@controller_message}"%>
+  <br />
+  <%= link_to("Go to Index",
+    {:controller => 'welcome',
+      :action => 'index',
+      :id => 5, :random => "Derek"}) %>
 </body>
 </html>
