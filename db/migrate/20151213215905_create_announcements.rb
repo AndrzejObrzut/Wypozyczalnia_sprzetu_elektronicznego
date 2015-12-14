@@ -3,11 +3,13 @@ class CreateAnnouncements < ActiveRecord::Migration
     create_table :announcements do |t|
       t.integer  "announcements_id"
       t.string "title", :limit => 100, :null => false
-      t.integer "positon"
+      t.text "descrption", :null => false
       t.date "date_of_start", :null => false
       t.integer "price_per_hour", :null => false
       t.integer "price_per_day", :null => true
+      t.integer "positon"
       t.boolean "visible", :default=>true
+      t.attachment :photo
       t.timestamps null: false
     end
     add_index("announcements", "announcements_id")
