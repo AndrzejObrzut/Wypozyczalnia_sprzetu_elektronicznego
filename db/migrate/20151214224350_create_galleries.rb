@@ -3,7 +3,6 @@ class CreateGalleries < ActiveRecord::Migration
     create_table :galleries do |t|
       t.string "name", :null=>false
       t.boolean "visible", :default=>false
-      t.attachment "photo"
       t.timestamps null: false
     end
   end
