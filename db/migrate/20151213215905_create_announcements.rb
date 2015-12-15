@@ -9,7 +9,6 @@ class CreateAnnouncements < ActiveRecord::Migration
       t.integer "price_per_day", :null => true
       t.integer "positon"
       t.boolean "visible", :default=>true
-      t.attachment :photo
       t.timestamps null: false
     end
     add_index("announcements", "announcements_id")

@@ -1,2 +1,29 @@
 <h1>AnnouncementCategories#index</h1>
-<p>Find me in app/views/announcement_categories/index.html.erb</p>
+
+<%= link_to("Dodaj nowoa kategorię", {:action => 'new'}) %>
+
+<p>
+  Ilość kategorii: <%= @categories.size %>
+</p>
+
+<table>
+  <tr>
+    <th> pozycja </th>
+    <th> nazwa kategorii </th>
+    <th> widoczna </th>
+    <th> akcja </th>
+  </tr>
+
+  <% @categories.each do |category| %>
+    <tr>
+      <th> <%= category.position %> </th>
+      <th> <%= category.name %></th>
+      <th> <%= category.visible ? 'Widoczna' : 'Niewidoczna' %> </th>
+      <th>
+        <%= link_to("Pokaż", "#") %>
+        <%= link_to("Edycja", "#") %>
+        <%= link_to("Usuń", "#") %>
+      </th>
+    </tr>
+  <% end %>
+</table>
