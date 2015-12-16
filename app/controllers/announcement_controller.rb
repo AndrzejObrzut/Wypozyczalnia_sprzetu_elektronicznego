@@ -4,6 +4,7 @@ class AnnouncementController < ApplicationController
   end
 
   def view
+    @announcements = Announcement.sortNew
   end
 
   def add

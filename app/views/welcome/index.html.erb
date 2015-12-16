@@ -5,7 +5,7 @@
       <div class="col-xs2 text-center">
         <% @categories.each do |category| %>
           <button type="btn btn-primary btn-lg" role="button" name="button">
-            <%= link_to("#{category.name}", {:controller => 'announcement', :action => 'view'}) %>
+            <%= link_to("#{category.name}", {:controller => 'announcement', :action => 'view', :id => category.id}) %>
           </button>
         <% end %>
       </div>
