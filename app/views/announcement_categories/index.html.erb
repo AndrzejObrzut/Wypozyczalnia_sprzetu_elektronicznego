@@ -1,6 +1,6 @@
-<h1>AnnouncementCategories#index</h1>
+<h1>Kategorie</h1>
 
-<%= link_to("Dodaj nową kategorię", {:action => 'new'}) %>
+<!-- <%= link_to("Dodaj nową kategorię", {:action => 'new'}) %>
 
 <p>
   Ilość kategorii: <%= @categories.size %>
@@ -27,4 +27,13 @@
       </th>
     </tr>
   <% end %>
-</table>
+</table> -->
+<p>
+
+    <% @categories.each do |category| %>
+      <button type="button" class="btn btn-primary btn-lg">
+          <%= category.name %>
+      </button>
+    <% end %>
+
+</p>
