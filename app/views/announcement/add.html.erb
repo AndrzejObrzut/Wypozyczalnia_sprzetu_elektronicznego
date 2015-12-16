@@ -1,2 +1,38 @@
 <h1>Announcement#add</h1>
 <p>Find me in app/views/announcement/add.html.erb</p>
+
+
+<%= form_for(:announcement, :url=> {:action => 'create'}) do |field| %>
+
+<table>
+
+  <tr>
+    <th><%= field.label(:announcements_id, "Kategoria") %></th>
+    <td><%= field.select(:announcements_id, @announcement_category.map{|t| []}, :class =>'form-control')%></td>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:title) %></th>
+    <td><%= field.text_field(:title)%></td>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:description) %></th>
+    <td><%= text_area(field, :description, cols: 100, rows: 5 )%></td>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:price_per_hour) %></th>
+    <td><%= field.text_field(:price_per_hour)%></td>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:price_per_day) %></th>
+    <td><%= field.text_field(:price_per_day)%></td>
+  </tr>
+</table>
+
+<div >
+  <%= submit_tag("Create") %>
+</div>
+<%end%>

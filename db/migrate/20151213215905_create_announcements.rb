@@ -4,11 +4,9 @@ class CreateAnnouncements < ActiveRecord::Migration
       t.integer  "announcements_id"
       t.string "title", :limit => 100, :null => false
       t.text "descrption", :null => false
-      t.date "date_of_start", :null => false
       t.integer "price_per_hour", :null => false
       t.integer "price_per_day", :null => true
       t.integer "positon"
-      t.boolean "visible", :default=>true
       t.timestamps null: false
     end
     add_index("announcements", "announcements_id")
