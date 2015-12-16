@@ -17,20 +17,17 @@ ActiveRecord::Schema.define(version: 20151214224350) do
   enable_extension "plpgsql"
 
   create_table "announcement_categories", force: :cascade do |t|
-    t.string   "name",                      null: false
-    t.integer  "position"
-    t.boolean  "visible",    default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "announcements", force: :cascade do |t|
     t.integer  "announcement_category_id"
     t.string   "title",                    limit: 100, null: false
-    t.text     "descrption",                           null: false
+    t.text     "description",                          null: false
     t.integer  "price_per_hour",                       null: false
     t.integer  "price_per_day"
-    t.integer  "positon"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
   end

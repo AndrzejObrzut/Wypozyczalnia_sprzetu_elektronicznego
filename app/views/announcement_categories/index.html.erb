@@ -1,39 +1,10 @@
 <h1>Kategorie</h1>
 
-<!-- <%= link_to("Dodaj nową kategorię", {:action => 'new'}) %>
 
-<p>
-  Ilość kategorii: <%= @categories.size %>
-</p>
-
-<table>
-  <tr>
-    <th> pozycja </th>
-    <th> nazwa kategorii </th>
-    <th> widoczna </th>
-    <th> ilosc ogloszen </th>
-  </tr>
-
+<div>
   <% @categories.each do |category| %>
-    <tr>
-      <th> <%= category.position %> </th>
-      <th> <%= category.name %></th>
-      <th> <%= category.visible ? 'Widoczna' : 'Niewidoczna' %> </th>
-      <th> <%= category.announcements.size %> </th>
-      <th>
-        <%= link_to("Pokaż", "#") %>
-        <%= link_to("Edycja", "#") %>
-        <%= link_to("Usuń", "#") %>
-      </th>
-    </tr>
+    <button type="button" class="btn btn-primary btn-lg">
+        <%= category.name %>
+    </button>
   <% end %>
-</table> -->
-<p>
-
-    <% @categories.each do |category| %>
-      <button type="button" class="btn btn-primary btn-lg">
-          <%= category.name %>
-      </button>
-    <% end %>
-
-</p>
+</div>

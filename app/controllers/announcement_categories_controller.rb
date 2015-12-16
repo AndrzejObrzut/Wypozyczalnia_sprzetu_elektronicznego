@@ -1,14 +1,14 @@
 class AnnouncementCategoriesController < ApplicationController
 
   def index
-    @categories = AnnouncementCategory.sortASC
+    @categories = AnnouncementCategory.all
   end
 
   def show
   end
 
   def new
-    @counter = AnnouncementCategory.count + 1
+    # @counter = AnnouncementCategory.count + 1
   end
 
   def create
@@ -16,7 +16,7 @@ class AnnouncementCategoriesController < ApplicationController
     if @categories.save
       redirect_to(:action=>'index')
     else
-      @counter = AnnouncementCategory.count + 1
+      # @counter = AnnouncementCategory.count + 1
       render('new')
     end
   end
@@ -28,7 +28,7 @@ class AnnouncementCategoriesController < ApplicationController
   end
 
   def categories_parameters
-    params.require(:category).permit(:name, :position, :visible)
+    params.require(:category).permit(:name)
   end
 
 end

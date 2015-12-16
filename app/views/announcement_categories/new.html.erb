@@ -10,16 +10,6 @@
     <td> <%= field.text_field(:name)%></td>
   </tr>
 
-  <tr>
-    <th> <%= field.label(:position) %> </th>
-    <td> <%= field.select(:position,1..@counter)%></td>
-  </tr>
-
-  <tr>
-    <th> <%= field.label(:visible, "Czy jest widoczna?") %> </th>
-    <td> <%= field.check_box(:visible)%></td>
-  </tr>
-
 </table>
 <div>
   <%= submit_tag("Utwórz") %>

@@ -18,7 +18,7 @@
 
   <tr>
     <th><%= field.label(:description) %></th>
-    <td><%= text_area(field, :description, cols: 100, rows: 5 )%></td>
+    <td><%= field.text_area(:description, cols: 100, rows: 5 )%></td>
   </tr>
 
   <tr>
@@ -30,6 +30,7 @@
     <th><%= field.label(:price_per_day) %></th>
     <td><%= field.text_field(:price_per_day)%></td>
   </tr>
+
 </table>
 
 <div >

@@ -9,14 +9,15 @@ class AnnouncementController < ApplicationController
   def add
     @new_announcement = Announcement
     @category = AnnouncementCategory.all
-    @counter = Announcement.count + 1
   end
 
   def create
-    @announcement = Announcement.new(announcements_param)
-    if @announcements.save
+    @announcement = Announcement.new(announcement_param)
+    if @announcement.save
+      flash[:notice] = "Ogłosznie zostało pomyślnie utworzone"
       redirect_to(:action => 'index')
     else
+      @category = AnnouncementCategory.all
       render('new')
     end
   end
@@ -28,7 +29,7 @@ class AnnouncementController < ApplicationController
   def delete
   end
 
-  def announcements_param
-    params.require(:announcement).permit(:title, :description, :price_per_hour, :price_per_day)
+  def announcement_param
+    params.require(:announcement).permit(:announcement_category_id, :title, :description, :price_per_hour, :price_per_day)
   end
 end
