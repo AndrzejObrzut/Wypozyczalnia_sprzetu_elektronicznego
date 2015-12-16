@@ -1,8 +1,11 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 text-center">
-      <h3>Tutaj wyświeltane będą wszystkie ogłosznia</h3>
+<div class="container-fluid">
+  <h1>
+    <div class="col-xs12 text-center">
+      <% @categories.each do |category| %>
+        <button type="btn btn-primary btn-lg" role="button" name="button">
+          <%= link_to("#{category.name}", {:controller => 'welcome', :action => 'index'}) %>
+        </button>
+      <% end %>
     </div>
-  </div>
+  </h1>
 </div>
