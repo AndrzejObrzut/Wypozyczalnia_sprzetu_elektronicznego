@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151214224350) do
   end
 
   create_table "announcements", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer  "announcement_category_id"
     t.string   "title",                    limit: 100,                null: false
     t.text     "descrption",                                          null: false
@@ -35,6 +36,16 @@ ActiveRecord::Schema.define(version: 20151214224350) do
     t.boolean  "visible",                              default: true
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
+=======
+    t.integer  "announcements_id"
+    t.string   "title",            limit: 100, null: false
+    t.text     "descrption",                   null: false
+    t.integer  "price_per_hour",               null: false
+    t.integer  "price_per_day"
+    t.integer  "positon"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+>>>>>>> 4be36e13fbf678033561a77b59bb18b76a212b80
   end
 
   add_index "announcements", ["announcement_category_id"], name: "index_announcements_on_announcement_category_id", using: :btree
