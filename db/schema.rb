@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151214224350) do
   enable_extension "plpgsql"
 
   create_table "announcement_categories", force: :cascade do |t|
-    t.string   "names",                     null: false
+    t.string   "name",                      null: false
     t.integer  "position"
     t.boolean  "visible",    default: true
     t.datetime "created_at",                null: false
@@ -25,13 +25,19 @@ ActiveRecord::Schema.define(version: 20151214224350) do
   end
 
   create_table "announcements", force: :cascade do |t|
-    t.string   "title",          limit: 100, null: false
-    t.date     "date_of_start",              null: false
-    t.integer  "price_per_hour",             null: false
+    t.integer  "announcements_id"
+    t.string   "title",            limit: 100,                null: false
+    t.text     "descrption",                                  null: false
+    t.date     "date_of_start",                               null: false
+    t.integer  "price_per_hour",                              null: false
     t.integer  "price_per_day"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "positon"
+    t.boolean  "visible",                      default: true
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
+
+  add_index "announcements", ["announcements_id"], name: "index_announcements_on_announcements_id", using: :btree
 
   create_table "galleries", force: :cascade do |t|
     t.string   "name",                       null: false
