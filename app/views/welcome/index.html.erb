@@ -1,13 +1,16 @@
 <div class="container-fluid">
+<br>
+  <font size="10">
     <div class="row">
-      <div class="col-xs4 text-center">
+      <div class="col-xs2 text-center">
         <% @categories.each do |category| %>
           <button type="btn btn-primary btn-lg" role="button" name="button">
-            <%= link_to("#{category.name}", {:controller => 'welcome', :action => 'index'}) %>
+            <%= link_to("#{category.name}", {:controller => 'announcement', :action => 'view'}) %>
           </button>
         <% end %>
       </div>
     </div>
+  </font>
 
   <div class="row">
     <div class="">
