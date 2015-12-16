@@ -18,7 +18,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="<% yield(:home)%>"><%= link_to("Home", {:controller => 'welcome', :action => 'index'}) %></li>
         <li class="<% yield(:categories)%>"><%= link_to("Kategorie", {:controller => 'announcement_categories', :action => 'index'})%></li>
-        <li class="<% yield(:categories)%>"><%= link_to("Kategorie", {:controller => 'announcement_categories', :action => 'index'})%></li>
+        <li class="<% yield(:login)%>"><%= link_to("Zaloguj", {:controller => 'welcome', :action => 'login'})%></li>
         <li class="<% yield(:registration)%>"><%= link_to("Zarejestruj", {:controller => 'welcome', :action => 'registration'}) %></li>
         <li class="<% yield(:add)%>"><%= link_to("Dodaj Ogłoszenie!", {:controller => 'announcement', :action => 'add'})%></li>
        </ul>
