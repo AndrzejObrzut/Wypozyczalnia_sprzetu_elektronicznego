@@ -8,8 +8,10 @@
 
 </head>
 <body>
-
-<%= yield %>
+  <%= render 'shared/navbar' %>
+  <div class="main-page-content <%= controller.controller_name %>">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

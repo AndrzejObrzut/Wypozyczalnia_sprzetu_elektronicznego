@@ -1,73 +1,8 @@
-<!DOCTYPE HTML>
-<html lang="pl">
-<head>
-  <meta charset="utf-8" />
-  <title> Wypozyczalnia Elektroniki </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Wyporzyczalnia Sprzetu Elektronicznego" />
-  <meta name="keywords" content="elektronika, sprzet elektroniczny, wypozyczalnia" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome1" />
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="../../assets/stylesheets/bootstrap-theme.min.css">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="../../assets/stylesheets/bootstrap.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-</head>
-
-<body>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 text-right">
-
-      <br />
-      <button type="button" class="btn btn-info" style="color: white !important;">
-        <%= link_to("Moje konto",
-          {:controller => 'welcome',
-            :action => 'sample',
-            :id => 4, :random => "Derek"}) %>
-        </button>
-
-      <button type="button" class="btn btn-primary" style="color: white !important;">
-        <%= link_to("+ Dodaj ogłoszenie!",
-          {:controller => 'welcome',
-            :action => 'sample',
-            :id => 3, :random => "Derek"}) %>
-        </button>
-    </div>
-  </div>
-  <div class="row">
     <div class="col-xs-12 text-center">
-      <h1>WYPOZYCZALNIA SPRZETU ELEKTRONICZNEGO</h1>
+      <h3>Tutaj wyświeltane będą wszystkie ogłosznia</h3>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-xs-12 text-left">
-
-      <p>Find me in app/views/welcome/index.html.erb</p>
-      <%= "Count to 10" %>
-      <br />
-      <% 11.times do |i| %>
-        <%= i %>
-      <% end %>
-
-      <%   if(params.has_key?(:id) && params.has_key?(:random)) %><br />
-        <%= "ID : #{params[:id]}"%> <br />
-        <%= "RANDOM : #{params[:random]}"%> <br />
-      <%end %>
-    </div>
-  </div>
-
-  <button type="button" >
-    <%= link_to("Zarejestruj się",
-      {:action => 'registration'}) %>
-    </button>
-
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../../assets/javascript/bootstrap.min.js"></script>
-</body>
-</html>
