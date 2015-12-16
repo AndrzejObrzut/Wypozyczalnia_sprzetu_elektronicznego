@@ -7,8 +7,8 @@
 <table>
 
   <tr>
-    <th><%= field.label(:announcements_id, "Kategoria") %></th>
-    <td><%= field.select(:announcements_id, @announcement_category.map{|t| []}, :class =>'form-control')%></td>
+    <th><%= field.label(:announcement_category_id) %></th>
+    <td><%= field.select(:announcement_category_id, @category.map{|t| [t.name, t.id]}, :class => 'form-control' )%></td>
   </tr>
 
   <tr>

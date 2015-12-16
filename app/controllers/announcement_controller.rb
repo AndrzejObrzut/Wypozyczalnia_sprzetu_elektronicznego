@@ -8,12 +8,12 @@ class AnnouncementController < ApplicationController
 
   def add
     @new_announcement = Announcement
+    @category = AnnouncementCategory.all
+    @counter = Announcement.count + 1
   end
 
   def create
-    @announcements = Announcement.new(announcements_param)
-    @announcement_category = AnnouncementCategory.order('pozycja ASC')
-    @countr = Announcement.count + 1
+    @announcement = Announcement.new(announcements_param)
     if @announcements.save
       redirect_to(:action => 'index')
     else
