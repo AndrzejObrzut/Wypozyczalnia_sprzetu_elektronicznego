@@ -13,7 +13,7 @@
 <% @announcements.each do |announcement| %>
 <% if announcement.announcement_category_id == params[:id].to_i%>
   <tr>
-      <th><%=image_tag('sample.jpg', size: "200x200")%></th>
+      <th><%=image_tag('sample.png', size: "200x200")%></th>
       <th><font size="4"><%= announcement.title %></font></th>
       <th><%= announcement.description %></th>
       <th><%= announcement.price_per_hour %></th>
