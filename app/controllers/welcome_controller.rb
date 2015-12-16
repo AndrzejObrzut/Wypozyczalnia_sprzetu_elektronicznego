@@ -13,6 +13,9 @@ class WelcomeController < ApplicationController
     @controller_message = "Hello From Welcome Controller"
   end
 
+  def login
+  end
+
   def registration
       @new_user = User
   end
