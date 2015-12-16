@@ -25,19 +25,19 @@ ActiveRecord::Schema.define(version: 20151214224350) do
   end
 
   create_table "announcements", force: :cascade do |t|
-    t.integer  "announcements_id"
-    t.string   "title",            limit: 100,                null: false
-    t.text     "descrption",                                  null: false
-    t.date     "date_of_start",                               null: false
-    t.integer  "price_per_hour",                              null: false
+    t.integer  "announcement_category_id"
+    t.string   "title",                    limit: 100,                null: false
+    t.text     "descrption",                                          null: false
+    t.date     "date_of_start",                                       null: false
+    t.integer  "price_per_hour",                                      null: false
     t.integer  "price_per_day"
     t.integer  "positon"
-    t.boolean  "visible",                      default: true
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.boolean  "visible",                              default: true
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
-  add_index "announcements", ["announcements_id"], name: "index_announcements_on_announcements_id", using: :btree
+  add_index "announcements", ["announcement_category_id"], name: "index_announcements_on_announcement_category_id", using: :btree
 
   create_table "galleries", force: :cascade do |t|
     t.string   "name",                       null: false

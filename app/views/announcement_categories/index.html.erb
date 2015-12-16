@@ -11,7 +11,7 @@
     <th> pozycja </th>
     <th> nazwa kategorii </th>
     <th> widoczna </th>
-    <th> akcja </th>
+    <th> ilosc ogloszen </th>
   </tr>
 
   <% @categories.each do |category| %>
@@ -19,6 +19,7 @@
       <th> <%= category.position %> </th>
       <th> <%= category.name %></th>
       <th> <%= category.visible ? 'Widoczna' : 'Niewidoczna' %> </th>
+      <th> <%= category.announcements.size %> </th>
       <th>
         <%= link_to("Pokaż", "#") %>
         <%= link_to("Edycja", "#") %>

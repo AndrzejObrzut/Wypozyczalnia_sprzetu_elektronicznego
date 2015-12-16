@@ -18,7 +18,8 @@
         <li class="<% yield(:home)%>"><%= link_to("Home", {:controller => 'welcome', :action => 'index'}) %></li>
         <li class="<% yield(:registration)%>"><%= link_to("Zarejestruj", {:controller => 'welcome', :action => 'registration'}) %></li>
         <li class="<% yield(:categories)%>"><%= link_to("Kategorie", {:controller => 'announcement_categories', :action => 'index'})%></li>
-        <li class="<% yield(:sample)%>"><%= link_to("Sample", {:controller => 'welcome', :action => 'sample'})%></li>      </ul>
+        <li class="<% yield(:sample)%>"><%= link_to("Sample", {:controller => 'welcome', :action => 'sample'})%></li>
+       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

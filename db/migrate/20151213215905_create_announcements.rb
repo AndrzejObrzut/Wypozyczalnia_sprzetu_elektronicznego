@@ -1,7 +1,7 @@
 class CreateAnnouncements < ActiveRecord::Migration
   def up
     create_table :announcements do |t|
-      t.integer  "announcements_id"
+      t.integer  "announcement_category_id"
       t.string "title", :limit => 100, :null => false
       t.text "descrption", :null => false
       t.date "date_of_start", :null => false
@@ -11,7 +11,7 @@ class CreateAnnouncements < ActiveRecord::Migration
       t.boolean "visible", :default=>true
       t.timestamps null: false
     end
-    add_index("announcements", "announcements_id")
+    add_index("announcements", "announcement_category_id")
 
   end
 
