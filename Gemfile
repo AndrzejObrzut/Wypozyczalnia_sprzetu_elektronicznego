@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Use on a 64-bit version of Ruby on Windows
+# Data contains data from the IANA Time Zone database packaged as Ruby modules for use with TZInfo.
 gem 'tzinfo-data'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -26,7 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+# Provides a simple, humane wrapper for safely handling passwords.
+gem 'bcrypt-ruby'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

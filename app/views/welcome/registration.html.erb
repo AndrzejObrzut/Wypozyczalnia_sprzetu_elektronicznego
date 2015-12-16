@@ -1,0 +1,44 @@
+<h1>
+  Rejestracja użytkownika
+</h1>
+
+<%= link_to("Powrot do strony glownej", {:action => 'index'})%>
+
+<%= form_for(:create_new_user, :url => {:action => 'create'}) do |new_user|%>
+
+<table>
+  <tr>
+      <th><%= new_user.label(:user_name) %></th>
+      <td><%= new_user.text_field(:user_name) %></td>
+  <tr>
+    <tr>
+        <th><%= new_user.label(:password) %></th>
+        <td><%= new_user.password_field(:password) %></td>
+    <tr>
+      <tr>
+          <th><%= new_user.label(:password_confirmation) %></th>
+          <td><%= new_user.password_field(:password_confirmation) %></td>
+      <tr>
+      <tr>
+          <th><%= new_user.label(:first_name) %></th>
+          <td><%= new_user.text_field(:first_name) %></td>
+      <tr>
+        <tr>
+            <th><%= new_user.label(:second_name) %></th>
+            <td><%= new_user.text_field(:second_name) %></td>
+        <tr>
+          <tr>
+              <th><%= new_user.label(:email) %></th>
+              <td><%= new_user.text_field(:email) %></td>
+          <tr>
+            <tr>
+                <th><%= new_user.label(:phone) %></th>
+                <td><%= new_user.text_field(:phone) %></td>
+            <tr>
+</table>
+
+<div>
+  <%= submit_tag("Zatwierdź")%>
+</div>
+
+<% end %>
