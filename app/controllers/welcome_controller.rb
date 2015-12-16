@@ -6,15 +6,7 @@ class WelcomeController < ApplicationController
       end
   end
 
-  def new_announcement
-  end
-
-  def view_announcemet
-  end
-
-  def my_account
-  end
-
+  #test test
   def sample
     @controller_message = "Hello From Welcome Controller"
   end
