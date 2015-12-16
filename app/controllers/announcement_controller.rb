@@ -1,4 +1,8 @@
 class AnnouncementController < ApplicationController
+  def index
+    @announcement = Announcement
+  end
+
   def view
   end
 

@@ -28,7 +28,7 @@ class AnnouncementCategoriesController < ApplicationController
   end
 
   def categories_parameters
-    params.require(:cetegory).permit(:name, :position, :visible)
+    params.require(:category).permit(:name, :position, :visible)
   end
 
 end
