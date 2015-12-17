@@ -16,7 +16,7 @@ class AnnouncementController < ApplicationController
     @announcement = Announcement.new(announcement_param)
     if @announcement.save
       flash[:notice] = "Ogłosznie zostało pomyślnie utworzone"
-      redirect_to(:action => 'index')
+      redirect_to(:controller => 'welcome', :action => 'index')
     else
       @category = AnnouncementCategory.all
       render('new')
