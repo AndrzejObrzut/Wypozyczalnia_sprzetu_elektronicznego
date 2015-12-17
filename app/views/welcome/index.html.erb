@@ -1,127 +1,86 @@
 
 <br>
-  <div class="row">
-      <font size="10">
-      <div class="col-xs2 text-center">
-        <% @categories.each do |category| %>
-            <div class="col-xs-4">
-              <%= link_to("#{category.name}", {:controller => 'announcement', :action => 'view', :id => category.id, :class => "btn btn-lg btn-primary btn-block"}) %>
-            </div>
-        <% end %>
-      </div>
-    </font>
-  </div>
-
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6">
-      <% @announcements.take(5).each do |announcement| %>
-      <div class="alert alert-success">
-        <div class="row">
-          <div class="col-sm-4 text-left">
-            <%=image_tag('sample.png', size: "200x200")%>
-              </div>
-                <h3 class="col-sm-8 text-center">
-                    <%=announcement.title%>
-                    <div class="row"><h5>
-                      <% @categories.each do |category| %>
-                        <% if announcement.announcement_category_id == category.id %>
-                          <%= category.name %>
-                        <% end %>
-                      <% end %>
-                    </h5></div>
-                </h3>
-                <h3 class="col-sm-4 text-left">
-                Cena za godzine: <%=announcement.price_per_hour %> zł
-                <div class="row">
-              <h4>
-                Cena za dzień: <%=announcement.price_per_day %> zł
-              </h4>
-                </div>
-              </h3>
-        <h4 class="col-sm-4 text-right">
-          <br>
-          Data dodania: <%=announcement.created_at %>
-        </h4>
-
-      </div>
+    <div class="text-center">
+      <% @categories.each do |category| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <h2><%= link_to("#{category.name}", {:controller => 'announcement', :action => 'view', :id => category.id, :class => "btn btn-lg btn-primary btn-block"}) %></h2>
+          </div>
+      <% end %>
+    </div>
   </div>
-  <%end%>
-</div>
-    <div class="col-sm-6">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <% @announcements.take(5).each do |announcement| %>
+        <div class="alert alert-success">
+          <div class="row">
+            <div class="col-sm-4 text-left">
+              <%=image_tag('sample.png', size: "200x200")%>
+            </div>
+            <h3 class="col-sm-8 text-center">
+              <%=announcement.title%>
+              <div class="row">
+                <h5>
+                  <% @categories.each do |category| %>
+                    <% if announcement.announcement_category_id == category.id %>
+                      <%= category.name %>
+                    <% end %>
+                  <% end %>
+                </h5>
+              </div>
+            </h3>
+            <h3 class="col-sm-4 text-left">
+              Cena za godzine: <%=announcement.price_per_hour %> zł
+              <div class="row">
+                <h4>
+                  Cena za dzień: <%=announcement.price_per_day %> zł
+                </h4>
+              </div>
+            </h3>
+            <h4 class="col-sm-4 text-right"><br>Data dodania: <%=announcement.created_at %></h4>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <% i = 0 %>
       <% @announcements.take(10).each do |announcement| %>
-      <% if i < 5 %>
-      <%i = i + 1%>
-      <%next%>
-      <%else%>
-      <div class="alert alert-info">
-        <div class="row">
-          <div class="col-sm-4 text-left">
-            <%=image_tag('sample.png', size: "200x200")%>
+        <% if i < 5 %>
+        <%i = i + 1%>
+        <%next%>
+        <%else%>
+        <div class="alert alert-info">
+          <div class="row">
+            <div class="col-sm-4 text-left">
+              <%=image_tag('sample.png', size: "200x200")%>
+            </div>
+            <h3 class="col-sm-8 text-center">
+              <%=announcement.title%>
+              <div class="row"><h5>
+                <% @categories.each do |category| %>
+                  <% if announcement.announcement_category_id == category.id %>
+                    <%= category.name %>
+                  <% end %>
+                <% end %>
+              </h5></div>
+            </h3>
+            <h3 class="col-sm-4 text-left">
+              Cena za godzine: <%=announcement.price_per_hour %> zł
+              <div class="row">
+                <h4 class="text-left">
+                  Cena za dzień: <%=announcement.price_per_day %> zł
+                </h4>
               </div>
-                <h3 class="col-sm-8 text-center">
-                    <%=announcement.title%>
-                    <div class="row"><h5>
-                      <% @categories.each do |category| %>
-                        <% if announcement.announcement_category_id == category.id %>
-                          <%= category.name %>
-                        <% end %>
-                      <% end %>
-                    </h5></div>
-                </h3>
-                <h3 class="col-sm-4 text-left">
-                Cena za godzine: <%=announcement.price_per_hour %> zł
-                <div class="row">
-              <h4>
-                Cena za dzień: <%=announcement.price_per_day %> zł
-              </h4>
-                </div>
-              </h3>
-              <h4 class="col-sm-4 text-right">
-                <br>
-                Data dodania: <%=announcement.created_at %>
-              </h4>
-      </div>
-      </div>
+            </h3>
+            <h4 class="col-sm-4 text-right"><br>
+              Data dodania: <%=announcement.created_at %>
+            </h4>
+          </div>
+        </div>
+        <%end%>
       <%end%>
-      <%end%>
-      </div>
+    </div>
   </div>
-
 </div>
-
-  <!-- <br>
-  <% @announcements.take(5).each do |announcement| %>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-2">
-      <%=image_tag('sample.png', size: "200x200")%>
-    </div>
-    <div class="col-md-6">
-      <div class="row">
-        <h3 class="text-center"> <%= announcement.title %></h3>
-      </div>
-      <div class="row">
-        <% @categories.each do |category| %>
-          <% if announcement.announcement_category_id == category.id %>
-          <h5 class="text-left"><%= category.name %></h5>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="row">
-        <h3 class="text-right">Cena za godzine: <%=announcement.price_per_hour %> zł</h3>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <h4 class="text-left"> Data dodania: <%=announcement.created_at %></h4>
-        </div>
-        <div class="col-md-6">
-          <h4 class="text-right">Cena za dzień: <%=announcement.price_per_day %> zł</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2"></div>
-  </div>
-  <%end%> -->
