@@ -16,10 +16,10 @@
       <% @announcements.take(5).each do |announcement| %>
         <div class="alert alert-success">
           <div class="row">
-            <div class="col-xs-12 col-sm-7 col-md-5 col-lg-3 text-left">
+            <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 text-left">
               <%=image_tag('sample.png', size: "200x200")%>
             </div>
-            <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-9 text-center">
+            <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
               <%=announcement.title%>
               <div class="row">
                 <h5>
@@ -53,10 +53,10 @@
         <%else%>
         <div class="alert alert-info">
           <div class="row">
-            <div class="col-sm-4 text-left">
+            <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 text-left">
               <%=image_tag('sample.png', size: "200x200")%>
             </div>
-            <h3 class="col-sm-8 text-center">
+            <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
               <%=announcement.title%>
               <div class="row"><h5>
                 <% @categories.each do |category| %>
@@ -64,9 +64,10 @@
                     <%= category.name %>
                   <% end %>
                 <% end %>
-              </h5></div>
+                </h5>
+              </div>
             </h3>
-            <h3 class="col-sm-4 text-left">
+            <h3 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-left">
               Cena za godzine: <%=announcement.price_per_hour %> zł
               <div class="row">
                 <h4 class="text-left">
@@ -74,7 +75,7 @@
                 </h4>
               </div>
             </h3>
-            <h4 class="col-sm-4 text-right"><br>
+            <h4 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-right"><br>
               Data dodania: <%=announcement.created_at %>
             </h4>
           </div>
