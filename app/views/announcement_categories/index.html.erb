@@ -1,10 +1,31 @@
-<h1>Kategorie</h1>
 
+<div class="container">
+  <h1>Kategorie</h1>
 
-<div>
-  <% @categories.each do |category| %>
-    <button type="button" class="btn btn-primary btn-lg">
-        <%= category.name %>
-    </button>
-  <% end %>
+  <p>
+    Ilość kategorii: <%= @categories.size%>
+  </p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nazwa</th>
+      <th>Utworzona</th>
+      <th>Ilość ogłoszeń</th>
+      <th>Akcje</th>
+    </tr>
+
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%=category.id %></td>
+        <td><%=category.name%></td>
+        <td><%=category.created_at%></td>
+        <td align="right"><%=category.announcements.size %></td>
+        <td>
+          <%= link_to("Edycja", '#')%>
+          <%= link_to("Usuń", '#')%>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
 </div>

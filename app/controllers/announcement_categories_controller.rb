@@ -1,7 +1,7 @@
 class AnnouncementCategoriesController < ApplicationController
 
   def index
-    @categories = AnnouncementCategory.all
+    @categories = AnnouncementCategory.sortNew
   end
 
   def show
