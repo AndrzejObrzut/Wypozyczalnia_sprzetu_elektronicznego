@@ -1,17 +1,17 @@
-<h1>Nowa kategoria</h1>
+<div class="container">
+  <h1>Nowa kategoria</h1>
 
-<%= link_to("Wróć", {:action => 'index'}) %>
+  <%= link_to("Wróć", {:action => 'index'}) %>
 
-<%= form_for(:category, :url => {:action => "create"}) do |field|%>
+  <%= form_for(:category, :url => {:action => "create"}) do |field|%>
 
-<table>
-  <tr>
-    <th> <%= field.label(:name)%> </th>
-    <td> <%= field.text_field(:name)%></td>
-  </tr>
+    <table>
+      <tr>
+        <th> <%= field.label(:name, "Nazwa kategorii: ")%> </th>
+        <td> <%= field.text_field(:name)%></td>
+      </tr>
 
-</table>
-<div>
-  <%= submit_tag("Utwórz") %>
+    </table><br>
+    <%= submit_tag("Utwórz") %>
+  <% end %>
 </div>
-<% end %>

@@ -5,12 +5,18 @@
   <p>
     Ilość kategorii: <%= @categories.size%>
   </p>
+
+  <p>
+    <%= link_to("Dodaj kategorię", {:controller => 'announcement_categories', :action => 'new'})%>
+  </p>
+
   <table>
     <tr>
       <th>ID</th>
       <th>Nazwa</th>
-      <th>Utworzona</th>
       <th>Ilość ogłoszeń</th>
+      <th>Utworzona</th>
+      <th>Edytowana</th>
       <th>Akcje</th>
     </tr>
 
@@ -18,12 +24,15 @@
       <tr>
         <td><%=category.id %></td>
         <td><%=category.name%></td>
+        <td align="center"><%=category.announcements.size %></td>
         <td><%=category.created_at%></td>
-        <td align="right"><%=category.announcements.size %></td>
+        <td><%=category.updated_at%></td>
         <td>
+          <%= link_to("Pokaż ogłoszenia", '#')%>
           <%= link_to("Edycja", '#')%>
-          <%= link_to("Usuń", '#')%>
+          <%= link_to("Usuń", {:action => 'delete', :id => category.id})%>
         </td>
+
       </tr>
     <% end %>
 

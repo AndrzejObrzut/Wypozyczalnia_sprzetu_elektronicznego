@@ -1,14 +1,11 @@
 class AnnouncementCategoriesController < ApplicationController
 
   def index
-    @categories = AnnouncementCategory.sortNew
-  end
-
-  def show
+    @categories = AnnouncementCategory.all
   end
 
   def new
-    # @counter = AnnouncementCategory.count + 1
+    @category = AnnouncementCategory.new({:name => "Nowa"})
   end
 
   def create
@@ -24,7 +21,14 @@ class AnnouncementCategoriesController < ApplicationController
   def edit
   end
 
+  # Obsługa usuwania kategorii
   def delete
+    @category = AnnouncementCategory.find(params[:id])
+  end
+
+  def drop
+    category = AnnouncementCategory.find(params[:id]).destroy
+    redirect_to(:action => 'index')
   end
 
   def categories_parameters
