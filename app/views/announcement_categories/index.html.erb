@@ -29,7 +29,7 @@
         <td><%=category.updated_at%></td>
         <td>
           <%= link_to("Pokaż ogłoszenia", '#')%>
-          <%= link_to("Edycja", '#')%>
+          <%= link_to("Edycja", {:action => 'edit', :id => category.id})%>
           <%= link_to("Usuń", {:action => 'delete', :id => category.id})%>
         </td>
 
