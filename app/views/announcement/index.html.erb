@@ -31,7 +31,7 @@
         <td>
           <%= link_to("Pokaż", {:action => 'view', :id => announcement.id})%>
           <%= link_to("Edycja", {:action => 'edit', :id => announcement.id})%>
-          <%= link_to("Usuń", "#")%>
+          <%= link_to("Usuń", {:action => 'delete', :id => announcement.id})%>
         </td>
       </tr>
     <% end %>

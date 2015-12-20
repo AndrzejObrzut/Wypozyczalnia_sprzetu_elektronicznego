@@ -46,6 +46,12 @@ class AnnouncementController < ApplicationController
   end
 
   def delete
+    @announcement = Announcement.find(params[:id])
+  end
+
+  def drop
+    announcement = Announcement.find(params[:id]).destroy
+    redirect_to(:action => 'index')
   end
 
   def announcement_param

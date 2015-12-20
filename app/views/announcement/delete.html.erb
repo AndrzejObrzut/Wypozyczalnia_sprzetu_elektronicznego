@@ -1,2 +1,12 @@
-<h1>Announcement#delete</h1>
-<p>Find me in app/views/announcement/delete.html.erb</p>
+<div class="container">
+  <h1>Usuwanie ogłoszenia</h1>
+
+  <%= link_to("Wróć", {:action => 'index'}) %>
+
+  <%= form_for(:announcement, :url => {:action => "drop", :id => @announcement.id}) do |field|%>
+  <p>Czy napewno chcesz usunąć ogłoszenie <b><%=@announcement.title%></b>?</p>
+
+
+    <%= submit_tag("Usuń") %>
+  <% end %>
+</div>
