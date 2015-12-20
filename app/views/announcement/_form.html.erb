@@ -1,0 +1,23 @@
+<form role="form">
+  <div class="form-group">
+    <%= field.label(:announcement_category_id, "Kategoria:") %>
+    <br>
+    <%= field.select(:announcement_category_id, @categories.map{|t| [t.name, t.id]}, :class => 'form-control' )%>
+  </div>
+  <div class="form-group">
+    <%= field.label(:title, "Tytuł:") %>
+    <%= field.text_field(:title, :class=>"form-control")%>
+  </div>
+  <div class="form-group">
+    <%= field.label(:description, "Opis:") %>
+    <%= field.text_area(:description, :class=> "form-control", rows: 5 )%>
+  </div>
+  <div class="form-group">
+    <%= field.label(:price_per_hour, "Cena za godzinę:") %>
+    <%= field.text_field(:price_per_hour, :class=>"form-control")%>
+  </div>
+  <div class="form-group">
+    <%= field.label(:price_per_day, "Cena za dzień:") %>
+    <%= field.text_field(:price_per_day, :class=>"form-control")%>
+  </div>
+</form>

@@ -1,15 +1,16 @@
 class AnnouncementController < ApplicationController
   def index
-    @announcements
+    @announcements = Announcement.sortNew
   end
 
   def view
     @announcements = Announcement.sortNew
   end
 
+  # Obsługa dodawania nowego ogłoszenia
   def add
-    @new_announcement = Announcement
-    @category = AnnouncementCategory.all
+    @announcement = Announcement.new({:title => "Tytuł ogłoszenia"})
+    @categories = AnnouncementCategory.all
   end
 
   def create
@@ -18,13 +19,25 @@ class AnnouncementController < ApplicationController
       flash[:notice] = "Ogłosznie zostało pomyślnie utworzone"
       redirect_to(:controller => 'welcome', :action => 'index')
     else
-      @category = AnnouncementCategory.all
+      @categories = AnnouncementCategory.all
       render('new')
     end
   end
 
-
+  # Obsługa edycji ogłoszenia
   def edit
+    @announcement = Announcement.find(params[:id])
+    @categories = AnnouncementCategory.all
+  end
+
+  def update
+    @announcement = Announcement.find(params[:id])
+    if @announcement .update_attributes(announcement_param)
+      redirect_to(:action=>'index', :id => @announcement.id)
+    else
+      @categories = AnnouncementCategory.all
+      render('edit')
+    end
   end
 
   def delete

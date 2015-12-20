@@ -1,1 +1,39 @@
-<h1>Announcement#index</h1>
+<div class="container">
+  <h1>Ogłoszenia</h1>
+
+  <p>
+    Ilość stron: <%= @announcements.size%>
+  </p>
+
+  <p>
+    <%= link_to("Dodaj ogłoszenie", {:controller => 'announcement', :action => 'add'})%>
+  </p>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Tytuł</th>
+      <th>Cena za godzinę</th>
+      <th>Cena za dzień</th>
+      <th>Utworzona</th>
+      <th>Edytowana</th>
+      <th>Akcje</th>
+    </tr>
+
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%=announcement.id %></td>
+        <td><%=announcement.title%></td>
+        <td><%=announcement.price_per_hour%></td>
+        <td><%=announcement.price_per_day%></td>
+        <td><%=announcement.created_at%></td>
+        <td><%=announcement.updated_at%></td>
+        <td>
+          <%= link_to("Pokaż", '#')%>
+          <%= link_to("Edycja", {:action => 'edit', :id => announcement.id})%>
+          <%= link_to("Usuń", "#")%>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
