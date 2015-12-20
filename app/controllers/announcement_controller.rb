@@ -3,6 +3,11 @@ class AnnouncementController < ApplicationController
     @announcements = Announcement.sortNew
   end
 
+  # Pokaż wszystkie z danej kategoii
+  def view_by_category
+    @announcements = Announcement.sortNew
+  end
+
   def view
     @announcements = Announcement.sortNew
   end

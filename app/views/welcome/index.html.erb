@@ -11,7 +11,7 @@
             <%=image_tag('defaultAudio.png', size: "100x75")%>
           </div>
           <div class="col-xs-12">
-            <h2><%= link_to("#{category.name}", {:controller => 'announcement', :action => 'view', :id => category.id, :class => "btn btn-lg btn-primary btn-block"}) %></h2>
+            <h2><%= link_to("#{category.name}", {:controller => 'announcement', :action => 'view_by_category', :id => category.id, :class => "btn btn-lg btn-primary btn-block"}) %></h2>
           </div>
       </div>
     <% end %>
