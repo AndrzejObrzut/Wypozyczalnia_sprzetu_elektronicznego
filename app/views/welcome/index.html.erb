@@ -26,15 +26,9 @@
               <%=image_tag('sample.png', size: "200x200")%>
             </div>
             <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
-              <%=announcement.title%>
+              <%= link_to("#{announcement.title}", {:controller => 'announcement', :action => 'view', :id => announcement.announcement_category_id, :class => "btn btn-lg btn-primary btn-block"}) %>
               <div class="row">
-                <h5>
-                  <% @categories.each do |category| %>
-                    <% if announcement.announcement_category_id == category.id %>
-                      <%= category.name %>
-                    <% end %>
-                  <% end %>
-                </h5>
+                <h5><%= announcement.announcement_category.name%></h5>
               </div>
             </h3>
             <h3 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-left">
@@ -63,14 +57,9 @@
               <%=image_tag('sample.png', size: "200x200")%>
             </div>
             <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
-              <%=announcement.title%>
-              <div class="row"><h5>
-                <% @categories.each do |category| %>
-                  <% if announcement.announcement_category_id == category.id %>
-                    <%= category.name %>
-                  <% end %>
-                <% end %>
-                </h5>
+              <%= link_to("#{announcement.title}", {:controller => 'announcement', :action => 'view', :id => announcement.announcement_category_id, :class => "btn btn-lg btn-primary btn-block"}) %>
+              <div class="row">
+                <h5><%= announcement.announcement_category.name%></h5>
               </div>
             </h3>
             <h3 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-left">

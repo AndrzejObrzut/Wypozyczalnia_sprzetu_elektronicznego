@@ -8,8 +8,9 @@ class AnnouncementController < ApplicationController
     @announcements = Announcement.sortNew
   end
 
+  # Pokaż dane ogłoszenie
   def view
-    @announcements = Announcement.sortNew
+    @announcement = Announcement.find(params[:id])
   end
 
   # Obsługa dodawania nowego ogłoszenia
