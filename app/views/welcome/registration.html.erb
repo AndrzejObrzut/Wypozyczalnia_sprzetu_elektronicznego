@@ -32,6 +32,13 @@
       <%= new_user.label(:phone, "Telefon:") %>
       <%= new_user.text_field(:phone, :class=>"form-control") %>
     </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="regulamin"> Akceptuję
+        <%= link_to asset_path("regulamin.pdf") do %> regulamin <% end %>
+        portalu WSE
+      </label>
+    </div>
     <div class="row">
       <div class="col-xs-4">
       </div>
