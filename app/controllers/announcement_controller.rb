@@ -6,7 +6,7 @@ class AnnouncementController < ApplicationController
   # Pokaż wszystkie z danej kategoii
   def view_by_category
     @announcements = Announcement.sortNew
-    @categories = AnnouncementCategory.sortNew
+    @category = AnnouncementCategory.find(params[:id])
   end
 
   # Pokaż dane ogłoszenie
