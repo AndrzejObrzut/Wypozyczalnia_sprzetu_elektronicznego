@@ -16,7 +16,7 @@ class AnnouncementController < ApplicationController
 
   # Obsługa dodawania nowego ogłoszenia
   def add
-    @announcement = Announcement.new({:title => "Tytuł ogłoszenia"})
+    @announcement = Announcement.new
     @categories = AnnouncementCategory.all
   end
 
