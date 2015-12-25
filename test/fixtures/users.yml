@@ -4,22 +4,19 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-      user_name: "Tester"
-      password: "123123"
-      password_confirmation: "123123"
-      first_name: "Test"
-      second_name: "Tester"
-      email: "tester@test.com"
-      phone: "660660660"
-# column: value
+# one:
+#       user_name: "Tester"
 #
-two:
-      user_name: "user"
-      password: "123123"
-      password_confirmation: "123123"
-      first_name: "User"
-      second_name: "Userowatowski"
-      email: "user@user.com"
-      phone: "400500500"
-  
+#       first_name: "Test"
+#       second_name: "Tester"
+#       email: "tester@test.com"
+#       phone: "660660660"
+# # column: value
+# #
+# two:
+#       user_name: "user"
+#
+#       first_name: "User"
+#       second_name: "Userowatowski"
+#       email: "user@user.com"
+#       phone: "400500500"

@@ -1,29 +1,39 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  fixtures :users
 
-   def test_book
+  def test_create_user
 
-     tester = User.new :user_name => users(:one).user_name,
-                          :password => users(:one).password,
-                          :password_confirmation => users(:one).password_confirmation,
-                          :first_name => users(:one).first_name,
-                          :second_name => users(:one).second_name,
-                          :email => users(:one).email,
-                          :phone => users(:one).phone,
-                          :created_at => users(:one).created_at
+    user = User.new(
+    user_name: "test",
+    first_name: "Test",
+    second_name: "test2",
+    password: "password",
+    email: "sebastian.pawlus@gmail.com",
+    phone: "123123123")
 
-     assert tester.save
+    user.save
 
-     tester_copy = User.find(tester.id)
+    assert_equal(user.errors.messages, {})
+    assert_equal(User.count, 1)
 
-     assert_equal tester.user_name, tester_copy.user_name
-
-     perl_book.user_name = "Tester"
-
-     assert tester.save
-     assert tester.destroy
    end
+
+   def test_password_invisibility
+
+     user = User.new(
+     user_name: "test",
+     first_name: "Test",
+     second_name: "test2",
+     password: "password",
+     email: "sebastian.pawlus@gmail.com",
+     phone: "123123123")
+
+     user.save
+
+     assert !User.find(user.id).password
+
+    end
+
 
 end
