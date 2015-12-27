@@ -10,7 +10,7 @@ class AnnouncementController < ApplicationController
   end
 
   # Pokaż dane ogłoszenie
-  def view
+  def show
     @announcement = Announcement.find(params[:id])
   end
 

@@ -29,7 +29,7 @@
         <td><%=announcement.created_at%></td>
         <td><%=announcement.updated_at%></td>
         <td>
-          <%= link_to("Pokaż", {:action => 'view', :id => announcement.id})%>
+          <%= link_to("Pokaż", {:action => 'show', :id => announcement.id})%>
           <%= link_to("Edycja", {:action => 'edit', :id => announcement.id})%>
           <%= link_to("Usuń", {:action => 'delete', :id => announcement.id})%>
         </td>
