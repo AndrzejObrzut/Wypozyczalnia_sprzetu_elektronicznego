@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'access/index'
-
-  get 'access/login'
-
-  get 'access/registration'
-
-  get 'access/users'
-
   # get 'welcome/index'
   match ':controller(/:action(/:id))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
@@ -16,6 +7,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  get 'admin', :to => "access#index"
+  get 'user', :to => "access#index"
 
 
   # Example of regular route:
