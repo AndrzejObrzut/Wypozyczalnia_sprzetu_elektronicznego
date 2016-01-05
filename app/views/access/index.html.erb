@@ -1,2 +1,8 @@
-<h1>Access#index</h1>
-<p>Find me in app/views/access/index.html.erb</p>
+
+<div class="container">
+  <h1>PANEL ZARZĄZDANIA</h1>
+  <%= link_to("Kategorie", {:controller => 'announcement_categories', :action => 'index'}) %>
+  <%= link_to("Ogłoszenia", {:controller => 'announcement', :action => 'index'}) %>
+  <%= link_to("Urzytkownicy", {:action => 'users'}) %>
+  <%= link_to("Wyloguj", {:action => 'logout'}) %>
+</div>
