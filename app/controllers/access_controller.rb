@@ -1,7 +1,6 @@
 class AccessController < ApplicationController
 
-
-
+  before_action :verify_login
   def index
   end
 
@@ -16,7 +15,7 @@ class AccessController < ApplicationController
       end
     end
     if verify
-      
+
       session[:email_id] = verify.id
       session[:email] = verify.email
       redirect_to(:action => 'index')

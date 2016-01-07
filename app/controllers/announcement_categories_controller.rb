@@ -1,6 +1,6 @@
 class AnnouncementCategoriesController < ApplicationController
 
-before_action :verify_login
+  before_action :verify_login
 
   def index
     @categories = AnnouncementCategory.all
@@ -8,6 +8,7 @@ before_action :verify_login
 
   # Obsługa dodawania nowej kategorii
   def new
+    before_action :verify_login
     @category = AnnouncementCategory.new({:name => "Nowa"})
   end
 
