@@ -22,7 +22,7 @@
               <% end %>
             </ul>
           </li>
-          <li class="<% yield(:login)%>"><%= link_to("Zaloguj", {:controller => 'access', :action => 'login'})%></li>
+          <li class="<% yield(:login)%>"><%= link_to(session[:email] == nil ? "Zaloguj" : "Wyloguj", session[:email] == nil ? {:controller => 'access', :action => 'login'} : {:controller => 'access', :action => 'logout'})%></li>
           <li class="<% yield(:registration)%>"><%= link_to("Zarejestruj", {:controller => 'access', :action => 'registration'}) %></li>
           <li class="<% yield(:add)%>"><%= link_to("Dodaj Ogłoszenie!", {:controller => 'announcement', :action => 'add'})%></li>
         </ul>

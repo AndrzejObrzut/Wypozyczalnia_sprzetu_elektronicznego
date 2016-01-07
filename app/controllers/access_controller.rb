@@ -16,6 +16,7 @@ class AccessController < ApplicationController
       end
     end
     if verify
+      
       session[:email_id] = verify.id
       session[:email] = verify.email
       redirect_to(:action => 'index')
@@ -28,7 +29,7 @@ class AccessController < ApplicationController
   def logout
     session[:email_id] = nil
     session[:email] = nil
-    redirect_to(:action => 'login')
+    redirect_to(:back)
   end
 
   def registration
