@@ -1,8 +1,34 @@
 class AccessController < ApplicationController
+
+
+
   def index
   end
 
   def login
+  end
+
+  def login_form
+    if params[:email].present? && params[:password].present?
+      look_for = User.where(:email => params[:email]).first
+      if look_for
+        verify = look_for.authenticate(params[:password])
+      end
+    end
+    if verify
+      session[:email_id] = verify.id
+      session[:email] = verify.email
+      redirect_to(:action => 'index')
+    else
+      flash[:notice] = "niepoprawna nazwa użytkownika lub hasło"
+      redirect_to(:action => 'login')
+    end
+  end
+
+  def logout
+    session[:email_id] = nil
+    session[:email] = nil
+    redirect_to(:action => 'login')
   end
 
   def registration

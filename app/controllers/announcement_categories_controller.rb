@@ -1,5 +1,7 @@
 class AnnouncementCategoriesController < ApplicationController
 
+before_action :verify_login
+
   def index
     @categories = AnnouncementCategory.all
   end
