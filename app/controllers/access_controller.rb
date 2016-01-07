@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 
-  before_action :verify_login
+  # before_action :vierify_login, only: [:index, :logout, :users, :create]
   def index
   end
 
@@ -20,7 +20,7 @@ class AccessController < ApplicationController
       session[:email] = verify.email
       redirect_to(:action => 'index')
     else
-      flash[:notice] = "niepoprawna nazwa użytkownika lub hasło"
+      flash[:notice] = "Niepoprawna nazwa użytkownika lub hasło"
       redirect_to(:action => 'login')
     end
   end
@@ -45,6 +45,7 @@ class AccessController < ApplicationController
       redirect_to(:action=>'index')
     else
       render('registration')
+      flash[:notice] = "Niepoprawnie wypełnione pola"
     end
   end
 
