@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 
-  before_action :verify_login, only: [:users, :index]
+  before_action :admin_login, only: [:users, :index]
 
   def index
   end
@@ -16,9 +16,9 @@ class AccessController < ApplicationController
       end
     end
     if verify
-
       session[:email_id] = verify.id
       session[:email] = verify.email
+      session[:is_admin] = verify.is_admin
       redirect_to(:controller => 'welcome', :action=>'index')
     else
       flash[:notice] = "Niepoprawna nazwa użytkownika lub hasło"
@@ -52,7 +52,24 @@ class AccessController < ApplicationController
     end
   end
 
+  def edit
+    @new_user = User.find(params[:id])
+    @new_user.update_attributes(:is_admin => "true")
+    redirect_to(:action=>'users')
+  end
+
+  def update
+    @new_user = User.find(params[:id])
+    if @new_user.update_attributes(new_user_parametrs)
+      redirect_to(:action=>'index', :id => @new_user.id)
+    else
+      flash[:notice] = "Niepoprawnie wypełnione pola"
+      render('edit')
+    end
+  end
+
   def new_user_parametrs
     params.require(:create_new_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :email, :phone)
   end
+
 end

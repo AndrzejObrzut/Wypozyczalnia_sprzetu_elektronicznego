@@ -11,6 +11,7 @@
       <th>second_name</th>
       <th>email</th>
       <th>phone</th>
+      <th>is_admin</th>
   </tr>
 <% @users.each do |user| %>
   <tr>
@@ -20,6 +21,8 @@
       <th><%= user.second_name %></th>
       <th><%= user.email %></th>
       <th><%= user.phone %></th>
+      <th><%= user.is_admin %></th>
+      <th><%= link_to("Nadaj prawa administratora", {:action => 'edit', :id => user.id})%></th>
   </tr>
 <% end %>
 

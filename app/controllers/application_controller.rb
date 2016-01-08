@@ -14,4 +14,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_login
+    unless session[:email_id]
+      flash[:notice] = "Jesteś niezalogowany"
+      redirect_to(:controller => 'access', :action => 'login')
+      return false
+    else
+      unless session[:is_admin]
+        redirect_to(:controller => 'welcome', :action => 'index')
+        return false
+      else
+      return true
+    end
+    end
+  end
+
 end

@@ -1,0 +1,50 @@
+<!-- <%= form_for(:new_user, :url => {:action => "update", :id => @new_user.id}) do |new_user|%>
+
+<div class="container col-xs-4 col-xs-offset-4">
+  <h1 class="text-center">Edycja</h1>
+
+  <form role="form">
+    <div class="form-group">
+      <%= new_user.label(:user_name, "Nazwa użykownika:") %>
+      <br>
+      <%= new_user.text_field(:user_name, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= new_user.label(:password, "Hasło:") %>
+      <%= new_user.password_field(:password, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= new_user.label(:password_confirmation, "Potwierdź hasło:") %>
+      <%= new_user.password_field(:password_confirmation, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= new_user.label(:first_name, "Imię:") %>
+      <%= new_user.text_field(:first_name, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= new_user.label(:second_name, "Nazwisko:") %>
+      <%= new_user.text_field(:second_name, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= new_user.label(:email, "Email:") %>
+      <%= new_user.email_field(:email, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= new_user.label(:phone, "Telefon:") %>
+      <%= new_user.telephone_field(:phone, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= new_user.label(:is_admin, "Administrator") %>
+      <%= new_user.check_box(:is_admin, :class=>"form-control") %>
+    </div>
+  </form>
+
+<div class="row">
+  <div class="col-xs-4">
+  </div>
+  <div class="col-xs-4">
+    <%= submit_tag("Aktualizuj", :class=>"btn btn-lg btn-primary btn-block") %>
+  </div>
+</div>
+</div>
+<%end%> -->

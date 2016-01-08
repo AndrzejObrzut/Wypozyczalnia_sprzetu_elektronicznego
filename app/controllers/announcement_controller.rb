@@ -1,6 +1,7 @@
 class AnnouncementController < ApplicationController
 
-  before_action :verify_login, only: [:index, :add, :create, :edit, :update, :delete, :drop]
+  before_action :verify_login, only: [:add, :edit, :update, :delete, :drop]
+  before_action :admin_login, only: [:index]
 
   def index
     @announcements = Announcement.sortNew
