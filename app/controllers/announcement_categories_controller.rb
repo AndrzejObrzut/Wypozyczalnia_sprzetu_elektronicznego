@@ -8,7 +8,6 @@ class AnnouncementCategoriesController < ApplicationController
 
   # Obsługa dodawania nowej kategorii
   def new
-    before_action :verify_login
     @category = AnnouncementCategory.new({:name => "Nowa"})
   end
 
