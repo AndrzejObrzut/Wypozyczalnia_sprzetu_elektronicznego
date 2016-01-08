@@ -3,26 +3,30 @@
   Ilość użytkowników: <%= @users.size %>
 </p>
 
-<table>
+<table class="table table-striped table-bordered table-hover table-condensed">
   <tr>
       <th>user_name</th>
-      <th>password_digest</th>
+      <!-- <th>password_digest</th> -->
       <th>first_name</th>
       <th>second_name</th>
       <th>email</th>
       <th>phone</th>
       <th>is_admin</th>
+      <th></th>
+      <th></th>
   </tr>
 <% @users.each do |user| %>
   <tr>
       <th><%= user.user_name %></th>
-      <th><%= user.password_digest %></th>
+      <!-- <th><%= user.password_digest %></th> -->
       <th><%= user.first_name %></th>
       <th><%= user.second_name %></th>
       <th><%= user.email %></th>
       <th><%= user.phone %></th>
       <th><%= user.is_admin %></th>
-      <th><%= link_to("Nadaj prawa administratora", {:action => 'edit', :id => user.id})%></th>
+      <th><%= link_to("Nadaj prawa administratora", {:action => 'give_admin', :id => user.id})%></th>
+      <th><%= link_to("Odbierz prawa administratora", {:action => 'take_admin', :id => user.id})%></th>
+      <th><%= link_to("Edytuj", {:action => 'edit', :id => user.id})%></th>
   </tr>
 <% end %>
 

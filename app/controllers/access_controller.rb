@@ -29,7 +29,20 @@ class AccessController < ApplicationController
   def logout
     session[:email_id] = nil
     session[:email] = nil
+    session[:is_admin] = nil
     redirect_to(:back)
+  end
+
+  def give_admin
+    @new_user = User.find(params[:id])
+    @new_user.update_attributes(:is_admin => "true")
+    redirect_to(:action=>'users')
+  end
+
+  def take_admin
+    @new_user = User.find(params[:id])
+    @new_user.update_attributes(:is_admin => "false")
+    redirect_to(:action=>'users')
   end
 
   def registration
@@ -43,6 +56,9 @@ class AccessController < ApplicationController
   def create
     @create_new_user = User.new(new_user_parametrs)
     if @create_new_user.save
+      session[:email_id] = nil
+      session[:email] = nil
+      session[:is_admin] = nil
       session[:email_id] = @create_new_user.id
       session[:email] = @create_new_user.email
       redirect_to(:controller => 'welcome', :action=>'index')
@@ -53,15 +69,13 @@ class AccessController < ApplicationController
   end
 
   def edit
-    @new_user = User.find(params[:id])
-    @new_user.update_attributes(:is_admin => "true")
-    redirect_to(:action=>'users')
+    @update_user = User.find(params[:id])
   end
 
   def update
-    @new_user = User.find(params[:id])
-    if @new_user.update_attributes(new_user_parametrs)
-      redirect_to(:action=>'index', :id => @new_user.id)
+    @update_user = User.find(params[:id])
+    if @update_user.update_attributes(update_parametrs)
+      redirect_to(:action=>'index', :id => @update_user.id)
     else
       flash[:notice] = "Niepoprawnie wypełnione pola"
       render('edit')
@@ -69,7 +83,11 @@ class AccessController < ApplicationController
   end
 
   def new_user_parametrs
-    params.require(:create_new_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :email, :phone)
+    params.require(:new_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :email, :phone)
+  end
+
+  def update_parametrs
+    params.require(:update_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :phone)
   end
 
 end
