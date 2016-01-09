@@ -1,6 +1,7 @@
 class AccessController < ApplicationController
 
-  before_action :admin_login, only: [:users, :index, :edit]
+  before_action :admin_login, only: [:users, :index]
+  before_action :verify_login, only: [:edit, :update, :change_password, :password]
 
   def index
   end
@@ -46,8 +47,8 @@ class AccessController < ApplicationController
   end
 
   def registration
-    @new_user = User
-  end
+     @new_user = User
+   end
 
   def users
     @users = User.sortNew
@@ -82,12 +83,40 @@ class AccessController < ApplicationController
     end
   end
 
+  def change_password
+    @update_password = User.find(params[:id])
+  end
+
+  def password
+    if params[:old_password].present?
+      look_for = User.where(:email => session[:email]).first
+      if look_for
+        verify = look_for.authenticate(params[:old_password])
+      end
+    end
+    if verify
+      if look_for.update_attributes(:password => params[:password]) && look_for.update_attributes(:password_confirmation => params[:password_confirmation])
+        redirect_to(:controller => 'welcome', :action=>'index')
+      else
+        flash[:notice] = "Niepoprawnie wypełnione pola"
+        redirect_to(:action=>'change_password', :id => session[:user_id])
+      end
+    else
+      flash[:notice] = "Niepoprawne hasło"
+      redirect_to(:action=>'change_password', :id => session[:user_id])
+    end
+  end
+
   def new_user_parametrs
-    params.require(:new_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :email, :phone)
+    params.require(:create_new_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :email, :phone)
   end
 
   def update_parametrs
     params.require(:update_user).permit(:user_name, :first_name, :second_name, :phone)
+  end
+
+  def update_password_parametrs
+    params.require(:update_user).permit(:password, :password_confirmation)
   end
 
 end
