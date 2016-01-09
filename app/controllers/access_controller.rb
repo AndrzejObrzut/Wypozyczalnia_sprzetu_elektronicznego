@@ -75,7 +75,7 @@ class AccessController < ApplicationController
   def update
     @update_user = User.find(params[:id])
     if @update_user.update_attributes(update_parametrs)
-      redirect_to(:action=>'index', :id => @update_user.id)
+      redirect_to(:controller => 'welcome', :action=>'index')
     else
       flash[:notice] = "Niepoprawnie wypełnione pola"
       render('edit')
@@ -87,7 +87,7 @@ class AccessController < ApplicationController
   end
 
   def update_parametrs
-    params.require(:update_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :phone)
+    params.require(:update_user).permit(:user_name, :first_name, :second_name, :phone)
   end
 
 end
