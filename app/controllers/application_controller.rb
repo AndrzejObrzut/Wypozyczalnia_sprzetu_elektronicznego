@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def verify_login
-    unless session[:email_id]
+    unless session[:user_id]
       flash[:notice] = "Jesteś niezalogowany"
       redirect_to(:controller => 'access', :action => 'login')
       return false
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_login
-    unless session[:email_id]
+    unless session[:user_id]
       flash[:notice] = "Jesteś niezalogowany"
       redirect_to(:controller => 'access', :action => 'login')
       return false

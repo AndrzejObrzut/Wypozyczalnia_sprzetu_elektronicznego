@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 
-  before_action :admin_login, only: [:users, :index]
+  before_action :admin_login, only: [:users, :index, :edit]
 
   def index
   end
@@ -16,7 +16,7 @@ class AccessController < ApplicationController
       end
     end
     if verify
-      session[:email_id] = verify.id
+      session[:user_id] = verify.id
       session[:email] = verify.email
       session[:is_admin] = verify.is_admin
       redirect_to(:controller => 'welcome', :action=>'index')
@@ -27,7 +27,7 @@ class AccessController < ApplicationController
   end
 
   def logout
-    session[:email_id] = nil
+    session[:user_id] = nil
     session[:email] = nil
     session[:is_admin] = nil
     redirect_to(:back)
@@ -56,10 +56,10 @@ class AccessController < ApplicationController
   def create
     @create_new_user = User.new(new_user_parametrs)
     if @create_new_user.save
-      session[:email_id] = nil
+      session[:user_id] = nil
       session[:email] = nil
       session[:is_admin] = nil
-      session[:email_id] = @create_new_user.id
+      session[:user_id] = @create_new_user.id
       session[:email] = @create_new_user.email
       redirect_to(:controller => 'welcome', :action=>'index')
     else
