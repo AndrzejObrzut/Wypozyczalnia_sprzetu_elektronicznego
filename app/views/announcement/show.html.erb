@@ -1,24 +1,30 @@
 <div class="container">
-  <h1><%= @announcement.title %></h1>
-
-  <table>
-    <tr>
-      <th>Kategoria:</th>
-      <td><%= @announcement.announcement_category.name%></td>
-    </tr>
-    <tr>
-      <th>Opis:</th>
-      <td><%= @announcement.description%></td>
-    </tr>
-    <tr>
-      <th>Cena za godzinę:</th>
-      <td><%= @announcement.price_per_hour%></td>
-    </tr>
-    <tr>
-      <th>Cena za dzień:</th>
-      <td><%= @announcement.price_per_day%></td>
-    </tr>
-  </table>
-  <h6>Utworzono: <%=@announcement.created_at%></h6>
-  <h6>Utworzono: <%=@announcement.updated_at%></h6>
+  <div class="row">
+    <div class="backimg">
+      <%= image_tag('tlo.png',  height: '300', width: '100%') %>
+    </div>
+  </div>
+  <div class="row">
+    <h1><%= @announcement.title %></h1>
+    <table>
+      <tr>
+        <th>Kategoria:</th>
+        <td><%= @announcement.announcement_category.name%></td>
+      </tr>
+      <tr>
+        <th>Opis:</th>
+        <td><%= @announcement.description%></td>
+      </tr>
+      <tr>
+        <th>Cena za godzinę:</th>
+        <td><%= @announcement.price_per_hour%></td>
+      </tr>
+      <tr>
+        <th>Cena za dzień:</th>
+        <td><%= @announcement.price_per_day%></td>
+      </tr>
+    </table>
+    <h6>Utworzono: <%=@announcement.created_at%></h6>
+    <h6>Utworzono: <%=@announcement.updated_at%></h6>
+  </div>
 </div>
