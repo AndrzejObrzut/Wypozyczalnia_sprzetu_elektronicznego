@@ -42,6 +42,7 @@ class AnnouncementCategoriesController < ApplicationController
 
   def drop
     category = AnnouncementCategory.find(params[:id]).destroy
+    flash[:notice] = "Kategoria '#{category.name}' został usunięty."
     redirect_to(:action => 'index')
   end
 
