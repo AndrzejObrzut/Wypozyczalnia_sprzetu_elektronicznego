@@ -2,12 +2,15 @@
 <br>
 <div class="container">
 
+  <div class="row">
+
   <% @categories.each do |category| %>
     <div  class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <%= link_to image_tag("#{category.image}", :border => 0, size: "280x280"), {:controller => 'announcement', :action => 'view_by_category', :id => category.id}%>
     </div>
   <% end %>
-
+  </div>
+  <br>
 
   <div class="row">
     <div class="class_name">
