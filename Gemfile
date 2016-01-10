@@ -33,6 +33,9 @@ gem 'bcrypt-ruby'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Easy upload management for ActiveRecord
+gem 'paperclip', '~> 4.3', '>= 4.3.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
