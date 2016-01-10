@@ -1,4 +1,5 @@
-<div class="container">
+<center>
+<div class="container" style="max-width: 1200px;">
   <h1>Ogłoszenia</h1>
 
   <p>
@@ -6,10 +7,10 @@
   </p>
 
   <p>
-    <%= link_to("Dodaj ogłoszenie", {:controller => 'announcement', :action => 'add'})%>
+    <%= link_to("Dodaj ogłoszenie", {:controller => 'announcement', :action => 'add'}, :class=>"btn btn-info")%>
   </p>
 
-  <table>
+  <table class="table table-striped table-bordered table-hover table-condensed">
     <tr>
       <th>ID</th>
       <th>Tytuł</th>
@@ -29,11 +30,14 @@
         <td><%=announcement.created_at%></td>
         <td><%=announcement.updated_at%></td>
         <td>
-          <%= link_to("Pokaż", {:action => 'show', :id => announcement.id})%>
-          <%= link_to("Edycja", {:action => 'edit', :id => announcement.id})%>
-          <%= link_to("Usuń", {:action => 'delete', :id => announcement.id})%>
+          <%= link_to("Pokaż", {:action => 'show', :id => announcement.id}, :class=>"btn btn-sm btn-primary")%>
+          <%= link_to("Edycja", {:action => 'edit', :id => announcement.id}, :class=>"btn btn-sm btn-primary")%>
+          <%= link_to("Usuń", {:action => 'delete', :id => announcement.id}, :class=>"btn btn-sm btn-primary")%>
         </td>
       </tr>
     <% end %>
   </table>
-</div>
+
+    <%= link_to("Panel zarządzania", {:controller => 'access', :action => 'index'}, :class=>"btn btn-info") %>
+  </div>
+  </center>
