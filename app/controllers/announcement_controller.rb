@@ -20,7 +20,7 @@ class AnnouncementController < ApplicationController
 
   # Obsługa dodawania nowego ogłoszenia
   def add
-    @announcement = Announcement.new
+    @announcement = Announcement.new({:price_per_day => "0", :price_per_hour =>"0"})
     @categories = AnnouncementCategory.all
   end
 
@@ -31,7 +31,7 @@ class AnnouncementController < ApplicationController
       redirect_to(:controller => 'welcome', :action => 'index')
     else
       @categories = AnnouncementCategory.all
-      render('new')
+      render('add')
     end
   end
 
