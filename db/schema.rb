@@ -17,9 +17,13 @@ ActiveRecord::Schema.define(version: 20151214224350) do
   enable_extension "plpgsql"
 
   create_table "announcement_categories", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",               null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "announcements", force: :cascade do |t|
