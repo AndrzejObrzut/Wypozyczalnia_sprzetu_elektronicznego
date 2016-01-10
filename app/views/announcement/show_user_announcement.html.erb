@@ -1,0 +1,8 @@
+<p>
+  <%= @announcements.size %>
+  <% @announcements.each do |announcement| %>
+    <% if announcement.user.id == @user.id %>
+      <h2>TAK!</h2>
+    <% end %>
+  <% end %>
+</p>

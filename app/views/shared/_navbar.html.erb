@@ -20,10 +20,11 @@
               <% end %>
             </ul>
           </li>
-          <li class="<% yield(:add)%>"><%= link_to("Dodaj Ogłoszenie!", {:controller => 'announcement', :action => 'add'})%></li>
+          <li class="<% yield(:add)%>"><%= link_to("Dodaj Ogłoszenie!", {:controller => 'announcement', :action => 'add', :id => session[:user_id]})%></li>
           <%if session[:email] != nil%>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Konto<span class="caret"></span></a>
             <ul class="dropdown-menu">
+                <li class="<% yield(:show_user_announcement)%>"><%= link_to("Moje ogłoszenia", {:controller => 'announcement', :action => 'show_user_announcement', :id => session[:user_id]})%>
                 <li class="<% yield(:edit)%>"><%= link_to("Edytuj", {:controller => 'access', :action => 'edit', :id => session[:user_id]})%>
                 <li class="<% yield(:edit)%>"><%= link_to("Zmień hasło", {:controller => 'access', :action => 'change_password', :id => session[:user_id]})%>
                 <li class="<% yield(:logout)%>"><%= link_to("Wyloguj", {:controller => 'access', :action => 'logout'})%>
