@@ -27,9 +27,9 @@
       <th><%= user.email %></th>
       <th><%= user.phone %></th>
       <th><%= user.is_admin %></th>
-      <th><%= link_to("Nadaj prawa administratora", {:action => 'give_admin', :id => user.id})%></th>
-      <th><%= link_to("Odbierz prawa administratora", {:action => 'take_admin', :id => user.id})%></th>
-      <th><%= link_to("Edytuj", {:action => 'edit', :id => user.id})%></th>
+      <th><%= link_to("Nadaj prawa administratora", {:action => 'give_admin', :id => user.id}, :class=>"btn btn-xs btn-primary")%></th>
+      <th><%= link_to("Odbierz prawa administratora", {:action => 'take_admin', :id => user.id}, :class=>"btn btn-xs btn-primary")%></th>
+      <th><%= link_to("Edytuj", {:action => 'edit', :id => user.id}, :class=>"btn btn-xs btn-primary")%></th>
   </tr>
 <% end %>
 

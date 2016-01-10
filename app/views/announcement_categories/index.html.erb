@@ -28,9 +28,9 @@
         <td><%=category.created_at%></td>
         <td><%=category.updated_at%></td>
         <td>
-          <%= link_to("Pokaż ogłoszenia", {:controller => 'announcement', :action => 'view_by_category', :id => category.id}, :class=>"btn btn-sm btn-primary")%>
-          <%= link_to("Edycja", {:action => 'edit', :id => category.id}, :class=>"btn btn-sm btn-primary")%>
-          <%= link_to("Usuń", {:action => 'delete', :id => category.id}, :class=>"btn btn-sm btn-primary")%>
+          <%= link_to("Pokaż ogłoszenia", {:controller => 'announcement', :action => 'view_by_category', :id => category.id}, :class=>"btn btn-xs btn-primary")%>
+          <%= link_to("Edycja", {:action => 'edit', :id => category.id}, :class=>"btn btn-xs btn-primary")%>
+          <%= link_to("Usuń", {:action => 'delete', :id => category.id}, :class=>"btn btn-xs btn-primary")%>
         </td>
 
       </tr>
