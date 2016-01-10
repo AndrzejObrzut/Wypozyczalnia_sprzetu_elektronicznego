@@ -8,7 +8,7 @@ class AnnouncementCategoriesController < ApplicationController
 
   # Obsługa dodawania nowej kategorii
   def new
-    @category = AnnouncementCategory.new({:name => "Nowa"})
+    @category = AnnouncementCategory.new
   end
 
   def create
