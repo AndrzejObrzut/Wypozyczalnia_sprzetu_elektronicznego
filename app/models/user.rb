@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :announcements
 
   validates :user_name,
             uniqueness: true,
