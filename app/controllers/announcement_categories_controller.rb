@@ -16,6 +16,7 @@ class AnnouncementCategoriesController < ApplicationController
     if @categories.save
       redirect_to(:action=>'index')
     else
+      flash[:notice] = "Błąd w podawaniu danych"
       render('new')
     end
   end
@@ -42,7 +43,6 @@ class AnnouncementCategoriesController < ApplicationController
 
   def drop
     category = AnnouncementCategory.find(params[:id]).destroy
-    flash[:notice] = "Kategoria '#{category.name}' został usunięty."
     redirect_to(:action => 'index')
   end
 

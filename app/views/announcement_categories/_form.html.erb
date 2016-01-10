@@ -1,3 +1,5 @@
+<% error(@category) %>
+
  <table>
   <tr>
     <th> <%= field.label(:name, "Nazwa kategorii: ")%> </th>
@@ -8,10 +10,4 @@
     <td> <%= field.file_field(:image)%></td>
   </tr>
 
-  <% if !@category.image%>
-    <tr>
-      <th> Zdjęcie </th>
-      <td> <%= image_tag @category.image %></td>
-    </tr>
-  <% end %>
 </table>
