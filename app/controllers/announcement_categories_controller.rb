@@ -46,7 +46,7 @@ class AnnouncementCategoriesController < ApplicationController
   end
 
   def categories_parameters
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :image)
   end
 
 end
