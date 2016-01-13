@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean "is_admin", :default=>false
       t.timestamps null: false
     end
+    add_index("users", "email")
     add_index("users", "user_name")
   end
 

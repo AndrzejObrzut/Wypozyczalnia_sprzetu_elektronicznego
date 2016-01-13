@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160110230057) do
   end
 
   add_index "announcements", ["announcement_category_id"], name: "index_announcements_on_announcement_category_id", using: :btree
+  add_index "announcements", ["user_id"], name: "index_announcements_on_user_id", using: :btree
 
   create_table "galleries", force: :cascade do |t|
     t.string   "name",                       null: false
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160110230057) do
     t.datetime "updated_at",                                 null: false
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["user_name"], name: "index_users_on_user_name", using: :btree
 
 end
