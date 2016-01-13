@@ -30,13 +30,13 @@ class AnnouncementController < ApplicationController
     @categories = AnnouncementCategory.all
 
     #WYCIĄGAM Z SESJI ID UŻYTKOWNIKA I PRZEKAZUJE DO FORMULARZA
-    @userid = User.find(params[:id]).id
+    @user_id = User.find(params[:id]).id
   end
 
   def create
     @announcement = Announcement.new(announcement_param)
+    @announcement.update_attributes(:user_id => session[:user_id])
     if @announcement.save
-      flash[:notice] = "Ogłosznie zostało pomyślnie utworzone"
       redirect_to(:controller => 'welcome', :action => 'index')
     else
       @categories = AnnouncementCategory.all
@@ -71,6 +71,6 @@ class AnnouncementController < ApplicationController
 
   def announcement_param
     # DODAŁEM :user_id, brak zapisu w bazie danych user_id, reszta przechodzi :/
-    params.require(:announcement).permit(:announcement_category_id, :user_id, :title, :description, :price_per_hour, :price_per_day)
+    params.require(:announcement).permit(:announcement_category_id, :title, :description, :price_per_hour, :price_per_day)
   end
 end
