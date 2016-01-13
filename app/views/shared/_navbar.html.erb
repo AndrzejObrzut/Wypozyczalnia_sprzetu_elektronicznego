@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand hidden-sm" href=/>Wypożyczalnia Sprzętu Elektronicznego</a>
+      <a class="navbar-brand" href=/>  WSE</a>
     </div>
     <div>
       <div id="navbar" class="navbar-collapse collapse">
@@ -24,6 +24,9 @@
           <%if session[:email] != nil%>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Konto<span class="caret"></span></a>
             <ul class="dropdown-menu">
+                <% if session[:is_admin]%>
+                  <li class="<% yield(:show_user_announcement)%>"><%= link_to("Panel administratora", {:controller => 'access', :action => 'index', :id => session[:user_id]})%>
+                <% end %>
                 <li class="<% yield(:show_user_announcement)%>"><%= link_to("Moje ogłoszenia", {:controller => 'announcement', :action => 'show_user_announcement', :id => session[:user_id]})%>
                 <li class="<% yield(:edit)%>"><%= link_to("Edytuj", {:controller => 'access', :action => 'edit', :id => session[:user_id]})%>
                 <li class="<% yield(:edit)%>"><%= link_to("Zmień hasło", {:controller => 'access', :action => 'change_password', :id => session[:user_id]})%>
