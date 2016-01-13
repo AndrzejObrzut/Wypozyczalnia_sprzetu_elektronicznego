@@ -1,15 +1,21 @@
 <% if object && object.errors.size > 0 %>
   <div class="bg_danger">
     <table class="table">
-      <tr class="danger">
-        <td>Wystąpiły błey podczas zapisu rekurdu do bazy daynch, ilość błędów: <%= object.errors.size %>
+      <%if session[:is_admin] == true%>
+      <tr class="warning">
+        <td>
+          Wystąpiły błędy podczas zapisu rekurdu do bazy daynch, ilość błędów: <%= object.errors.size %>
           <br>
-          dla następujących pól:</td>
+          dla następujących pól:
+        </td>
       </tr>
-      <% object.errors.full_messages.each do |message| %>
-        <tr class="warning">
-          <td><b><%= message %></b></td>
-        </tr>
+      <%end%>
+      <% object.errors.messages.values.each do |message| %>
+        <%message.each do  |m| %>
+          <tr class="danger">
+            <td><b><%= m %></b></td>
+          </tr>
+        <%end %>
       <% end %>
     </table>
   </div>
