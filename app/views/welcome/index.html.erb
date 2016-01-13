@@ -2,76 +2,43 @@
 <br>
 <div class="container">
 
-  <div class="row">
+  <div class="grid">
+    <div class="row">
 
-  <% @categories.each do |category| %>
-    <div  class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-      <%= link_to image_tag("#{category.image}", :border => 0, size: "280x280"), {:controller => 'announcement', :action => 'view_by_category', :id => category.id}%>
+    <% @categories.each do |category| %>
+      <div  class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <%= link_to image_tag("#{category.image}", :border => 0, size: "280x280"), {:controller => 'announcement', :action => 'view_by_category', :id => category.id}%>
+      </div>
+    <% end %>
     </div>
-  <% end %>
-  </div>
-  <br>
+    <br>
 
-  <div class="row">
-    <div class="class_name">
-      <% @announcements.take(5).each do |announcement| %>
-        <div class="alert alert-success">
-          <div class="row">
-            <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 text-left">
-              <%=image_tag('sample.png', size: "200x200")%>
+    <div class="row">
+        <% @announcements.take(5).each do |announcement| %>
+          <div class="alert alert-success">
+            <div class="row">
+              <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 text-left">
+                <%=image_tag('sample.png', size: "200x200")%>
+              </div>
+              <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
+                <%= link_to("#{announcement.title}", {:controller => 'announcement', :action => 'show', :id => announcement.announcement_category_id, :class => "btn btn-lg btn-primary btn-block"}) %>
+                <div class="row">
+                  <h5><%= announcement.announcement_category.name%></h5>
+                </div>
+              </h3>
+              <h3 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-left">
+                Cena za godzine: <%=announcement.price_per_hour %> zł
+                <div class="row">
+                  <h4>
+                    Cena za dzień: <%=announcement.price_per_day %> zł
+                  </h4>
+                </div>
+              </h3>
+              <h4 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-right"><br>Data dodania: <%=announcement.created_at %></h4>
             </div>
-            <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
-              <%= link_to("#{announcement.title}", {:controller => 'announcement', :action => 'show', :id => announcement.announcement_category_id, :class => "btn btn-lg btn-primary btn-block"}) %>
-              <div class="row">
-                <h5><%= announcement.announcement_category.name%></h5>
-              </div>
-            </h3>
-            <h3 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-left">
-              Cena za godzine: <%=announcement.price_per_hour %> zł
-              <div class="row">
-                <h4>
-                  Cena za dzień: <%=announcement.price_per_day %> zł
-                </h4>
-              </div>
-            </h3>
-            <h4 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-right"><br>Data dodania: <%=announcement.created_at %></h4>
           </div>
-        </div>
-      <%end%>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <% i = 0 %>
-      <% @announcements.take(10).each do |announcement| %>
-        <% if i < 5 %>
-        <%i = i + 1%>
-        <%next%>
-        <%else%>
-        <div class="alert alert-info">
-          <div class="row">
-            <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 text-left">
-              <%=image_tag('sample.png', size: "200x200")%>
-            </div>
-            <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
-              <%= link_to("#{announcement.title}", {:controller => 'announcement', :action => 'show', :id => announcement.announcement_category_id, :class => "btn btn-lg btn-primary btn-block"}) %>
-              <div class="row">
-                <h5><%= announcement.announcement_category.name%></h5>
-              </div>
-            </h3>
-            <h3 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-left">
-              Cena za godzine: <%=announcement.price_per_hour %> zł
-              <div class="row">
-                <h4 class="text-left">
-                  Cena za dzień: <%=announcement.price_per_day %> zł
-                </h4>
-              </div>
-            </h3>
-            <h4 class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-right"><br>
-              Data dodania: <%=announcement.created_at %>
-            </h4>
-          </div>
-        </div>
         <%end%>
-      <%end%>
     </div>
   </div>
+
 </div>
