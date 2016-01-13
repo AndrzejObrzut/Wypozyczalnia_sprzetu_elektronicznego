@@ -7,12 +7,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=/>  WSE</a>
+      <a class="navbar-brand" href=/>WSE</a>
     </div>
     <div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="<% yield(:home)%>"><%= link_to("Home", {:controller => 'welcome', :action => 'index'}) %></li>
+          <form class="navbar-form navbar-left" role="search">
+            <%= form_tag({:controller => "announcement", :action => "search"}, :method => "get") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Szukaj...", type: "text" ,class: "form-control"%>
+              <%= submit_tag "Szukaj", type: "submit", class: "btn btn-default"%>
+            <% end %>
+          </form>
+
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorie<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% AnnouncementCategory.all.each do |category| %>
