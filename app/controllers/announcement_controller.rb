@@ -1,6 +1,6 @@
 class AnnouncementController < ApplicationController
 
-  before_action :verify_login, only: [:add, :edit, :update, :delete, :drop]
+  before_action :verify_login, only: [:add, :edit, :update, :delete, :drop, :show_user_announcement]
   before_action :admin_login, only: [:index]
 
   def index
@@ -21,8 +21,6 @@ class AnnouncementController < ApplicationController
 
   def show_user_announcement
     @announcements = Announcement.sortNew
-    @user = User.find(params[:id])
-
   end
 
   # Obsługa dodawania nowego ogłoszenia
@@ -53,7 +51,7 @@ class AnnouncementController < ApplicationController
 
   def update
     @announcement = Announcement.find(params[:id])
-    if @announcement .update_attributes(announcement_param)
+    if @announcement.update_attributes(announcement_param)
       redirect_to(:action=>'index', :id => @announcement.id)
     else
       @categories = AnnouncementCategory.all
