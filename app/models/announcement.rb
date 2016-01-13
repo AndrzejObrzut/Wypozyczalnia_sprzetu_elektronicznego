@@ -21,4 +21,12 @@ class Announcement < ActiveRecord::Base
 
   scope :sortNew, lambda{order("announcements.created_at DESC")}
 
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', '%' + search + '%')
+    else
+      all
+    end
+  end
 end

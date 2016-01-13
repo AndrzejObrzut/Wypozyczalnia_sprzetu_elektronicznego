@@ -7,6 +7,12 @@ class AnnouncementController < ApplicationController
     @announcements = Announcement.sortNew
   end
 
+  def search
+    @search_announcemets = Announcement.search(params[:search])
+    render('search')
+  end
+
+
   # Pokaż wszystkie z danej kategoii
   def view_by_category
     @announcements = Announcement.sortNew
