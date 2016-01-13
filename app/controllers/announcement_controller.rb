@@ -10,6 +10,7 @@ class AnnouncementController < ApplicationController
   # Pokaż wszystkie z danej kategoii
   def view_by_category
     @announcements = Announcement.sortNew
+    @announcements_all = Announcement.all
     @category = AnnouncementCategory.find(params[:id])
   end
 
