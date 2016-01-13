@@ -15,7 +15,7 @@ class AnnouncementCategory < ActiveRecord::Base
 
   validates :name,
             :presence => true,
-            :length => {:maximum => 60, :message => "- Za długa nazwa kategorii"}
+            :length => {:maximum => 60, :minimum => 1, :message => "- Za długa nazwa kategorii"}
 
   scope :sortASC, lambda{order("announcement_categories.position ASC")}
   scope :sortNew, lambda{order("announcement_categories.created_at DESC")}
