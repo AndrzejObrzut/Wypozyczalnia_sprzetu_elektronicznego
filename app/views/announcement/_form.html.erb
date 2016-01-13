@@ -5,12 +5,6 @@
     <%= field.select(:announcement_category_id, @categories.map{|t| [t.name, t.id]}, :class => 'form-control' )%>
   </div>
   <div class="form-group">
-    <!--  FIZYCZNIE WYSWIETLAM ID -->
-    <%= field.label(:user_id, "ID Użytkownika") %>
-    <%= field.label(:user_id, @user_id, :class=>"form-control") %>
-    <!-- CHCĘ TO PRZEKAZAC DALEJ, DO announcement_param i zapisac w bazie danych -->
-  </div>
-  <div class="form-group">
     <%= field.label(:title, "Tytuł:") %>
     <%= field.text_field(:title, :class=>"form-control")%>
   </div>
