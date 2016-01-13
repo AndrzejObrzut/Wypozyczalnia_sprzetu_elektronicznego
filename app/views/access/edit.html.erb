@@ -12,7 +12,7 @@
     <div class="form-group">
       <%= update_user.label(:user_name, "Nazwa użykownika:") %>
       <br>
-      <%= update_user.text_field(:user_name, :class=>"form-control") %>
+      <%= update_user.label(:user_name, @update_user.user_name) %>
     </div>
     <div class="form-group">
       <%= update_user.label(:first_name, "Imię:") %>
