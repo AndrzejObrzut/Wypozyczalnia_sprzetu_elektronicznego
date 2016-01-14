@@ -14,9 +14,11 @@ class PhotosController < ApplicationController
     #               :filename => @photo.filename,
     #               :disposition => "inline")
 
-    send_data @photo.data, type: @photo.mime_type, filename: @photo.filename, disposition:"inline"
-
- end
+    send_data @photo.data,
+              type: @photo.mime_type,
+              filename: @photo.filename,
+              disposition:"inline"
+  end
 
   def new
     @photo = Photo.new
@@ -28,6 +30,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.update_attributes(:filename => @photo.data.original_filename)
     @photo.update_attributes(:mime_type => @photo.data.content_type)
+    @photo.update_attributes(:size => @photo.data.size)
 
     # normal save
     if @photo.save

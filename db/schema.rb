@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160113184531) do
     t.binary   "data",       null: false
     t.string   "filename"
     t.string   "mime_type"
+    t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

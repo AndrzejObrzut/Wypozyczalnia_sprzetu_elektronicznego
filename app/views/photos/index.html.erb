@@ -12,7 +12,7 @@
       <h1>PHOTOS</h1>
     </div>
       <%  @photos.each do |photo|  %>
-        <%= image_tag(url_for(:controller => "photos", :action => "show", :id => photo.id), size: "200x200", alt: "#{photo.name}") %>
+        <%= image_tag(url_for(:controller => "photos", :action => "show", :id => photo.id), size: "200x200", alt: photo.name) %>
         <br>
       <% end %>
   </div>
