@@ -12,9 +12,11 @@
       <%end%>
       <% object.errors.messages.values.each do |message| %>
         <%message.each do  |m| %>
-          <tr class="danger">
-            <td><b><%= m %></b></td>
-          </tr>
+          <%if  m != "can't be blank" and m != "doesn't match Password" %>
+            <tr class="danger">
+              <td><b><%= m %></b></td>
+            </tr>
+          <%end%>
         <%end %>
       <% end %>
     </table>
