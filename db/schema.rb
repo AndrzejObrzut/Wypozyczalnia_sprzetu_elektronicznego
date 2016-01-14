@@ -58,15 +58,16 @@ ActiveRecord::Schema.define(version: 20160113184531) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "user_name",       limit: 30,                 null: false
+    t.string   "user_name",            limit: 30,                 null: false
     t.string   "password_digest"
-    t.string   "first_name",      limit: 40,                 null: false
-    t.string   "second_name",     limit: 40,                 null: false
-    t.string   "email",           limit: 60,                 null: false
-    t.string   "phone",                                      null: false
-    t.boolean  "is_admin",                   default: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.string   "first_name",           limit: 40,                 null: false
+    t.string   "second_name",          limit: 40,                 null: false
+    t.string   "email",                limit: 60,                 null: false
+    t.string   "phone",                                           null: false
+    t.boolean  "is_admin",                        default: false
+    t.boolean  "regulations_accepted"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
