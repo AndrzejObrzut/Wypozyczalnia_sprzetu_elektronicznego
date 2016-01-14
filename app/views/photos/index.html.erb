@@ -13,6 +13,7 @@
     </div>
       <%  @photos.each do |photo|  %>
         <%= image_tag(url_for(:controller => "photos", :action => "show", :id => photo.id), size: "200x200", alt: photo.name) %>
+        <%= link_to("Download", {:controller => "photos", :action => "download", :id => photo.id}) %>
         <br>
       <% end %>
   </div>
