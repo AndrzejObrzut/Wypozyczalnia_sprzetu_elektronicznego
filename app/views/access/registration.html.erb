@@ -36,7 +36,7 @@
     </div>
     <div class="checkbox">
       <label>
-        <input type="checkbox" value="regulamin"> Akceptuję
+        <%= new_user.telephone_field(:regulations_accepted, :type=>"checkbox") %> Akceptuję
         <%= link_to asset_path("regulamin.pdf") do %> regulamin <% end %>
         portalu WSE
       </label>
