@@ -1,6 +1,7 @@
 class Announcement < ActiveRecord::Base
   belongs_to :announcement_category
   belongs_to :user
+  has_many :galleries
 
 
   validates :title,
