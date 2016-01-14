@@ -108,7 +108,7 @@ class AccessController < ApplicationController
   end
 
   def new_user_parametrs
-    params.require(:create_new_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :email, :phone)
+    params.require(:create_new_user).permit(:user_name, :password, :password_confirmation, :first_name, :second_name, :email, :phone, :regulations_accepted)
   end
 
   def update_parametrs
