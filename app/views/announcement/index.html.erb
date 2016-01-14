@@ -7,7 +7,7 @@
       Ilość ogłoszeń: <%=@announcements.size%>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <%= link_to("Dodaj ogłoszenie", {:controller => 'announcement', :action => 'add'}, :class=>"btn btn-info")%>
+      <%= link_to("Dodaj ogłoszenie", {:controller => 'announcement', :action => 'add', :id => session[:user_id]}, :class=>"btn btn-info")%>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
       <%= form_tag({:controller => "announcement", :action => "search"}, :method => "get") do %>
