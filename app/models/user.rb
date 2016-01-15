@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :first_name,
             length: {minimum: 1, maximum: 100, :message => "Proszę wpisać imię zawierające od 1 do 100 znaków"}
 
-  validates :second_name,
+  validates :last_name,
             length: {minimum: 1, maximum: 100, :message => "Proszę wpisać nazwisko zawierające od 1 do 100 znaków"}
 
   validates :email,
