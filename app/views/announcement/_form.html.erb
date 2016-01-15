@@ -22,10 +22,8 @@
     <%= field.label(:price_per_day, "Cena za dzień:") %>
     <%= field.text_field(:price_per_day, :class=>"form-control")%>
   </div>
-   <%= fields_for(:gallery) do |gallery| %>
   <div class="form-group">
     <%= gallery.label(:image, "Dodaj zdjęcie")%>
     <%= gallery.file_field(:image, :class=>"form-control")%>
   </div>
-  <%end%>
 </form>
