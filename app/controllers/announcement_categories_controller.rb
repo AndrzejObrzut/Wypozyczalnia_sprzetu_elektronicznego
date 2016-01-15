@@ -6,19 +6,51 @@ class AnnouncementCategoriesController < ApplicationController
     @categories = AnnouncementCategory.all
   end
 
+
+  def show
+    @category = AnnouncementCategory.find(params[:id])
+    # send_data(@photo.data,
+    #             :filename => @photo.name,
+    #             :type => @photo.mime_type,
+    #             :disposition => "inline")
+    # send_data(@photo.data,
+    #               :type => @photo.mime_type,
+    #               :filename => @photo.filename,
+    #               :disposition => "inline")
+    #
+    # puts @photo.mime_type, "===="
+    # puts @photo.data.class, "===="
+    send_data @category.image,
+              type: @category.mime_type,
+              filename: @category.filename,
+              disposition: "attachment"
+
+  end
+
   # Obsługa dodawania nowej kategorii
   def new
     @category = AnnouncementCategory.new
   end
 
   def create
-    @categories = AnnouncementCategory.new(categories_parameters)
-    if @categories.save
+    @category = AnnouncementCategory.new(category_parameters)
+    @category.update_attributes(:filename => @category.image.original_filename)
+    @category.update_attributes(:mime_type => @category.image.content_type)
+    @category.update_attributes(:image => @category.image.read)
+    @category.update_attributes(:size => @category.image.size)
+
+    if @category.save
       redirect_to(:action=>'index')
     else
       flash[:notice] = "Błąd w podawaniu danych"
       render('new')
     end
+  end
+
+
+  def download
+    @category = AnnouncementCategory.find params[:id]
+    send_data @category.image, filename: @category.filename, type: @category.mime_type, disposition: 'attachment'
   end
 
   # Obsługa edycji kategorii
@@ -28,7 +60,7 @@ class AnnouncementCategoriesController < ApplicationController
 
   def update
     @category = AnnouncementCategory.find(params[:id])
-    if @category.update_attributes(categories_parameters)
+    if @category.update_attributes(category_parameters)
       redirect_to(:action=>'index')
     else
       render('edit')
@@ -46,7 +78,7 @@ class AnnouncementCategoriesController < ApplicationController
     redirect_to(:action => 'index')
   end
 
-  def categories_parameters
+  def category_parameters
     params.require(:category).permit(:name, :image)
   end
 
