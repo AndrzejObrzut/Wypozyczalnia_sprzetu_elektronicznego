@@ -23,6 +23,16 @@
         <th>Cena za dzień:</th>
         <td><%= @announcement.price_per_day%></td>
       </tr>
+
+
+      <% @galleries.each do |gallery| %>
+      <% if gallery.announcement_id == @announcement.id%>
+      <tr>
+        <td><%= gallery.image%></td>
+      </tr>
+      <%end%>
+      <%end%>
+
     </table>
     <h6>Utworzono: <%=@announcement.created_at%></h6>
     <h6>Utworzono: <%=@announcement.updated_at%></h6>

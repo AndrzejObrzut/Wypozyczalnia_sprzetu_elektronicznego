@@ -23,6 +23,7 @@ class AnnouncementController < ApplicationController
   # Pokaż dane ogłoszenie
   def show
     @announcement = Announcement.find(params[:id])
+    @galleries = Gallery.sortOldGallery
   end
 
   def show_user_announcement
@@ -33,6 +34,7 @@ class AnnouncementController < ApplicationController
   def add
     @announcement = Announcement.new({:price_per_day => "0", :price_per_hour =>"0"})
     @categories = AnnouncementCategory.all
+    @gallery = Gallery.all
 
     #WYCIĄGAM Z SESJI ID UŻYTKOWNIKA I PRZEKAZUJE DO FORMULARZA
     @user_id = User.find(params[:id]).id
@@ -41,6 +43,9 @@ class AnnouncementController < ApplicationController
   def create
     @announcement = Announcement.new(announcement_param)
     @announcement.update_attributes(:user_id => session[:user_id])
+    @gallery = Gallery.new(gallery_param)
+    @gallery.update_attributes(:announcement_id => @announcement.id)
+    # @gallery.update_attributes(gallery_param)
     if @announcement.save
       redirect_to(:controller => 'welcome', :action => 'index')
     else
@@ -49,10 +54,12 @@ class AnnouncementController < ApplicationController
     end
   end
 
+
   # Obsługa edycji ogłoszenia
   def edit
     @announcement = Announcement.find(params[:id])
     @categories = AnnouncementCategory.all
+    @gallery = Gallery.all
   end
 
   def update
@@ -77,5 +84,9 @@ class AnnouncementController < ApplicationController
   def announcement_param
     # DODAŁEM :user_id, brak zapisu w bazie danych user_id, reszta przechodzi :/
     params.require(:announcement).permit(:announcement_category_id, :title, :description, :price_per_hour, :price_per_day)
+  end
+
+  def gallery_param
+    params.require(:announcement).permit(:image)
   end
 end
