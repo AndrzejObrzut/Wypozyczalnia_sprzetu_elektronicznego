@@ -9,22 +9,10 @@ class AnnouncementCategoriesController < ApplicationController
 
   def show
     @category = AnnouncementCategory.find(params[:id])
-    # send_data(@photo.data,
-    #             :filename => @photo.name,
-    #             :type => @photo.mime_type,
-    #             :disposition => "inline")
-    # send_data(@photo.data,
-    #               :type => @photo.mime_type,
-    #               :filename => @photo.filename,
-    #               :disposition => "inline")
-    #
-    # puts @photo.mime_type, "===="
-    # puts @photo.data.class, "===="
     send_data @category.image,
               type: @category.mime_type,
               filename: @category.filename,
               disposition: "attachment"
-
   end
 
   # Obsługa dodawania nowej kategorii
