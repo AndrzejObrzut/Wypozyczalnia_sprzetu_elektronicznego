@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string "last_name", :limit=>40, :null=>false
       t.string "email", :limit=>60, :null=>false
       t.string "phone", :null=>false
+      t.date "birth_date", :null=>false
       t.boolean "is_admin", :default=>false
       t.boolean "regulations_accepted"
       t.timestamps null: false
