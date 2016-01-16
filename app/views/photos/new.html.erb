@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Nowe zdjęcie </h1>
+
+  <%= link_to("Wróć", {:action => 'index'}) %>
+
+  <%= form_for(:photo, :url => {:action => "create"}) do |field|%>
+  <%= render(:partial => "form", :locals => {:field => field})%>
+  <div>
+    <%= submit_tag("Utwórz") %>
+  </div>
+  <% end %>
+</div>

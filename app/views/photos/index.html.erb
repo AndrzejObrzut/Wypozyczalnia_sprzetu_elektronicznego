@@ -1,0 +1,41 @@
+<center>
+<div class="container" style="max-width: 1200px;">
+  <h1>Zdjęcia</h1>
+
+  <p>
+    Ilość zdjęć: <%= @photos.size%>
+  </p>
+
+  <p>
+    <%= link_to("Dodaj zdjęcie", {:controller => 'photos', :action => 'new'}, :class=>"btn btn-info")%>
+  </p>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+    <tr>
+      <th>ID</th>
+      <th>Zdjęcie</th>
+      <th>Utworzona</th>
+      <th>Edytowana</th>
+      <th>Akcje</th>
+    </tr>
+
+    <% @photos.each do |photo| %>
+      <tr>
+        <td><%=photo.id %></td>
+        <td><%=photo.image %></td>
+
+        <td><%=photo.created_at%></td>
+        <td><%=photo.updated_at%></td>
+        <td>
+          <%= link_to("Edycja", {:action => 'edit', :id => photo.id}, :class=>"btn btn-xs btn-primary")%>
+          <%= link_to("Usuń", {:action => 'delete', :id => photo.id}, :class=>"btn btn-xs btn-primary")%>
+        </td>
+
+      </tr>
+    <% end %>
+
+  </table>
+
+  <%= link_to("Panel zarządzania", {:controller => 'access', :action => 'index'}, :class=>"btn btn-info") %>
+</div>
+</center>

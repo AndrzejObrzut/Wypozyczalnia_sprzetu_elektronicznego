@@ -1,0 +1,14 @@
+<table>
+  <div class="form-group">
+    <%= field.label(:announcement_id, "Kategoria:") %>
+    <br>
+    <%= field.select(:announcement_id, @announcements.map{|t| [t.title, t.id]}, :class => 'form-control' )%>
+  </div>
+  </div>
+   <tr>
+     <th> <%= field.label(:image, "Obaraz kategorii: ")%> </th>
+     <td> <%= field.file_field(:image)%></td>
+   </tr>
+
+</table>
+ 

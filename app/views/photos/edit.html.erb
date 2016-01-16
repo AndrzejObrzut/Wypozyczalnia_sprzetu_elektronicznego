@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Edycja kategorii</h1>
+
+  <%= link_to("Wróć", {:action => 'index'}) %>
+
+  <%= form_for(:category, :url => {:action => "update", :id => @category.id}) do |field|%>
+  <%= render(:partial => "form", :locals => {:field => field})%>
+  <div >
+    <%= submit_tag("Aktualizuj") %>
+  </div>
+  <% end %>
+</div>
