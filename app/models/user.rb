@@ -24,6 +24,17 @@ class User < ActiveRecord::Base
   validates :phone,
             presence: {:message => "Proszę wpisać numer telefonu"}
 
+  validates :birth_date,
+            presence: {:message => "Proszę wybrać datę urodzenia"}
+
+            def age
+              now = Date.today
+              age = now - birth_date
+            end
+
+  validates :age,
+            :numericality => {:greater_than_or_equal_to  => 6574, :message => "Tylko osoby pełnoletnie mogą się zarejestrować"}
+
   validates :regulations_accepted,
             presence: {:message => "Proszę zaakceptować regulamin"}
 
