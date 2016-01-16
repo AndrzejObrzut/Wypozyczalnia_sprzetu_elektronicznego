@@ -11,7 +11,7 @@ class AnnouncementController < ApplicationController
   def add
     @announcement = Announcement.new({:price_per_day => "0", :price_per_hour =>"0"})
     @categories = AnnouncementCategory.all
-    @photo = Photo.all
+    @photo = Photo.new
 
     #WYCIĄGAM Z SESJI ID UŻYTKOWNIKA I PRZEKAZUJE DO FORMULARZA
     @user_id = User.find(params[:id]).id
