@@ -114,7 +114,7 @@ class AccessController < ApplicationController
   end
 
   def update_parametrs
-    params.require(:update_user).permit(:user_name, :first_name, :last_name, :phone)
+    params.require(:update_user).permit(:first_name, :last_name, :phone, :birth_date)
   end
 
   def update_password_parametrs

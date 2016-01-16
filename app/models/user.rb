@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
             end
 
   validates :age,
-            :numericality => {:greater_than_or_equal_to  => 6574, :message => "Tylko osoby pełnoletnie mogą się zarejestrować"}
+            :numericality => {:greater_than_or_equal_to  => 6574, :message => "Tylko osoby pełnoletnie mogą korzystać z portalu"}
 
   validates :regulations_accepted,
             presence: {:message => "Proszę zaakceptować regulamin"}
