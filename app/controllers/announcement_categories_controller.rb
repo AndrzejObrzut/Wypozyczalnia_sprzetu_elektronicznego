@@ -1,6 +1,6 @@
 class AnnouncementCategoriesController < ApplicationController
 
-  before_action :admin_login
+  before_action :admin_login, only:[:index, :new, :edit, :delete]
 
   def index
     @categories = AnnouncementCategory.all
