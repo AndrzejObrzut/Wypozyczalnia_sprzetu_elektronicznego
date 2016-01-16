@@ -7,34 +7,11 @@ class AnnouncementController < ApplicationController
     @announcements = Announcement.sortNew
   end
 
-  def search
-    @search_announcemets = Announcement.search(params[:search])
-    render('search')
-  end
-
-
-  # Pokaż wszystkie z danej kategoii
-  def view_by_category
-    @announcements = Announcement.sortNew
-    @announcements_all = Announcement.all
-    @category = AnnouncementCategory.find(params[:id])
-  end
-
-  # Pokaż dane ogłoszenie
-  def show
-    @announcement = Announcement.find(params[:id])
-    @galleries = Gallery.sortOldGallery
-  end
-
-  def show_user_announcement
-    @announcements = Announcement.sortNew
-  end
-
   # Obsługa dodawania nowego ogłoszenia
   def add
     @announcement = Announcement.new({:price_per_day => "0", :price_per_hour =>"0"})
     @categories = AnnouncementCategory.all
-    @gallery = Gallery.all
+    @photo = Photo.all
 
     #WYCIĄGAM Z SESJI ID UŻYTKOWNIKA I PRZEKAZUJE DO FORMULARZA
     @user_id = User.find(params[:id]).id
@@ -44,9 +21,8 @@ class AnnouncementController < ApplicationController
     @announcement = Announcement.new(announcement_param)
     @announcement.update_attributes(:user_id => session[:user_id])
     #   NIE DZIAŁA DODAWANIE ZDJĘCIA DO KATEGORII
-    puts "==================== #{gallery_param}"
-    @gallery = Gallery.new(gallery_param)
-    @gallery.update_attributes(:announcement_id => @announcement.id)
+    @photo = Photo.new(photo_param)
+    @photo.update_attributes(:announcement_id => @announcement.id)
     # @gallery.update_attributes(gallery_param)
     if @announcement.save
       redirect_to(:controller => 'welcome', :action => 'index')
@@ -56,12 +32,11 @@ class AnnouncementController < ApplicationController
     end
   end
 
-
   # Obsługa edycji ogłoszenia
   def edit
     @announcement = Announcement.find(params[:id])
     @categories = AnnouncementCategory.all
-    @gallery = Gallery.all
+    @photo = Photo.all
   end
 
   def update
@@ -82,13 +57,34 @@ class AnnouncementController < ApplicationController
     announcement = Announcement.find(params[:id]).destroy
     redirect_to(:action => 'index')
   end
+  def search
+    @search_announcemets = Announcement.search(params[:search])
+    render('search')
+  end
+
+  # Pokaż wszystkie z danej kategoii
+  def view_by_category
+    @announcements = Announcement.sortNew
+    @announcements_all = Announcement.all
+    @category = AnnouncementCategory.find(params[:id])
+  end
+
+  # Pokaż dane ogłoszenie
+  def show
+    @announcement = Announcement.find(params[:id])
+    @photos = Photo.sortOldPhotos
+  end
+
+  def show_user_announcement
+    @announcements = Announcement.sortNew
+  end
 
   def announcement_param
     # DODAŁEM :user_id, brak zapisu w bazie danych user_id, reszta przechodzi :/
     params.require(:announcement).permit(:announcement_category_id, :title, :description, :price_per_hour, :price_per_day)
   end
 
-  def gallery_param
+  def photo_param
     params.require(:announcement).permit(:image)
   end
 end
