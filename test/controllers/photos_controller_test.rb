@@ -1,13 +1,8 @@
 require 'test_helper'
 
 class PhotosControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
-
-  test "should get show" do
-    get :show
+  test "should get idnex" do
+    get :idnex
     assert_response :success
   end
 
@@ -16,8 +11,18 @@ class PhotosControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get destroy" do
-    get :destroy
+  test "should get show" do
+    get :show
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get :edit
+    assert_response :success
+  end
+
+  test "should get delete" do
+    get :delete
     assert_response :success
   end
 
