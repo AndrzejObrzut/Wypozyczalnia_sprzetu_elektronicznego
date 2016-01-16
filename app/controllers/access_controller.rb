@@ -54,6 +54,8 @@ class AccessController < ApplicationController
     @users = User.sortNew
   end
 
+
+
   def create
     @create_new_user = User.new(new_user_parametrs)
     if @create_new_user.save
@@ -108,7 +110,7 @@ class AccessController < ApplicationController
   end
 
   def new_user_parametrs
-    params.require(:create_new_user).permit(:user_name, :password, :password_confirmation, :first_name, :last_name, :email, :phone, :regulations_accepted)
+    params.require(:create_new_user).permit(:user_name, :password, :password_confirmation, :first_name, :last_name, :email, :phone, :birth_date, :regulations_accepted)
   end
 
   def update_parametrs
