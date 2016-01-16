@@ -1,4 +1,8 @@
 class PhotosController < ApplicationController
+
+  before_action :verify_login, only: [:new, :edit, :update, :delete, :drop, :create]
+  before_action :admin_login, only: [:index]
+
   def index
     @photos = Photo.all
   end
