@@ -13,6 +13,10 @@
   <table class="table table-striped table-bordered table-hover table-condensed">
     <tr>
       <th>ID</th>
+      <th>Nazwa użytkownika</th>
+      <th>Mail użytkownika</th>
+      <th>Ogłoszenie</th>
+      <th>Zdjęcie</th>
       <th>Utworzona</th>
       <th>Edytowana</th>
       <th>Akcje</th>
@@ -21,7 +25,10 @@
     <% @photos.each do |photo| %>
       <tr>
         <td><%=photo.id %></td>
-
+        <td><%=photo.announcement.user.user_name %></td>
+        <td><%=photo.announcement.user.email %></td>
+        <td><%= link_to("#{photo.announcement.title}", {:controller => 'announcement', :action => 'show', :id => photo.announcement.id})%></td>
+        <td><%=image_tag photo.image %></td>
         <td><%=photo.created_at%></td>
         <td><%=photo.updated_at%></td>
         <td>
