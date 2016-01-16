@@ -3,8 +3,8 @@
 
   <%= link_to("Wróć", {:action => 'index'}) %>
 
-  <%= form_for(:category, :url => {:action => "drop", :id => @category.id}) do |field|%>
-  <p>Czy napewno chcesz usunąć kategorię <b><%=@category.name%></b>?</p>
+  <%= form_for(:photo, :url => {:action => "drop", :id => @photo.id}) do |field|%>
+  <p>Czy napewno chcesz usunąć kategorię <b><%=@photo.id%></b>?</p>
 
 
     <%= submit_tag("Usuń") %>

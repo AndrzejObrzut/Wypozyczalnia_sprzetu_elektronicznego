@@ -13,7 +13,6 @@
   <table class="table table-striped table-bordered table-hover table-condensed">
     <tr>
       <th>ID</th>
-      <th>Zdjęcie</th>
       <th>Utworzona</th>
       <th>Edytowana</th>
       <th>Akcje</th>
@@ -22,7 +21,6 @@
     <% @photos.each do |photo| %>
       <tr>
         <td><%=photo.id %></td>
-        <td><%=photo.image %></td>
 
         <td><%=photo.created_at%></td>
         <td><%=photo.updated_at%></td>
