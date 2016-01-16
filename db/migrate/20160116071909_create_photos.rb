@@ -3,7 +3,6 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
       t.integer "announcement_id"
       t.attachment :image
-      t.integer "position"
       t.timestamps null: false
     end
     add_index("photos", "announcement_id")
