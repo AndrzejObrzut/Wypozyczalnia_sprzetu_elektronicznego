@@ -25,12 +25,8 @@
       </tr>
 
 
-      <% @galleries.each do |gallery| %>
-      <% if gallery.announcement_id == @announcement.id%>
-      <tr>
-        <td><%= gallery.image%></td>
-      </tr>
-      <%end%>
+      <% @photos.each do |photo| %>
+        <%= photo.photos.image %>
       <%end%>
 
     </table>

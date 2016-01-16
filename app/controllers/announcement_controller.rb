@@ -23,8 +23,7 @@ class AnnouncementController < ApplicationController
     #   NIE DZIAŁA DODAWANIE ZDJĘCIA DO KATEGORII
     @photo = Photo.new(photo_param)
     @photo.update_attributes(:announcement_id => @announcement.id)
-    # @gallery.update_attributes(gallery_param)
-    if @announcement.save
+    if @announcement.save and @photo.save
       redirect_to(:controller => 'welcome', :action => 'index')
     else
       @categories = AnnouncementCategory.all
