@@ -75,6 +75,7 @@ class AccessController < ApplicationController
     @update_user = User.find(params[:id])
   end
 
+#CAN'T EDIT ANYTHING
   def update
     @update_user = User.find(params[:id])
     if @update_user.update_attributes(update_parametrs)
