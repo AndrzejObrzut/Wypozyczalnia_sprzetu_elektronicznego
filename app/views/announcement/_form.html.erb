@@ -1,29 +1,40 @@
 <%= error(@announcement) %>
+<%= error(@photo) %>
 
 <form role="form">
   <div class="form-group">
-    <%= field.label(:announcement_category_id, "Kategoria:") %>
+    <%= field.label(:announcement_category_id, "*Kategoria:") %>
     <br>
     <%= field.select(:announcement_category_id, @categories.map{|t| [t.name, t.id]}, :class => 'form-control' )%>
   </div>
   <div class="form-group">
-    <%= field.label(:title, "Tytuł:") %>
+    <%= field.label(:title, "*Tytuł:") %>
     <%= field.text_field(:title, :class=>"form-control")%>
   </div>
   <div class="form-group">
-    <%= field.label(:description, "Opis:") %>
+    <%= field.label(:description, "*Opis:") %>
     <%= field.text_area(:description, :class=> "form-control", rows: 5, style: "max-width: 100%;" )%>
   </div>
   <div class="form-group">
-    <%= field.label(:price_per_hour, "Cena za godzinę:") %>
+    <%= field.label(:price_per_hour, "*Cena za godzinę:") %>
     <%= field.text_field(:price_per_hour, :class=>"form-control")%>
   </div>
   <div class="form-group">
-    <%= field.label(:price_per_day, "Cena za dzień:") %>
+    <%= field.label(:price_per_day, "*Cena za dzień:") %>
     <%= field.text_field(:price_per_day, :class=>"form-control")%>
   </div>
-  <tr>
-    <th> <%= field.label(:image, "Obaraz kategorii: ")%> </th>
-    <td> <%= field.file_field(:image)%></td>
-  </tr>
+  <div class="form-group">
+    <%= field.label(:image, "Dodaj zdjęcia: ")%>
+    <br>
+    <%= field.label(:image, "*Zdjęcie główne")%>
+    <%= field.file_field(:image, :class=>"form-control")%>
+    <br>
+    <%= field.file_field(:image1, :class=>"form-control")%>
+    <br>
+    <%= field.file_field(:image2, :class=>"form-control")%>
+    <br>
+    <%= field.file_field(:image3, :class=>"form-control")%>
+    <br>
+    <%= field.file_field(:image4, :class=>"form-control")%>
+  </div>
 </form>

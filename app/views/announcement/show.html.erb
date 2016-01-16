@@ -25,9 +25,9 @@
       </tr>
 
       <% @photos.each do |photo| %>
-        <% if photo.announcement.id == @announcement.id %>
-          <td><%=image_tag photo.image %></td>
-        <%end%>
+          <% if photo.announcement.id == @announcement.id%>
+            <td><%=image_tag photo.image %></td>
+          <%end%>
       <% end %>
 
 
