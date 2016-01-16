@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113184531) do
+ActiveRecord::Schema.define(version: 20160116071909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,27 +40,18 @@ ActiveRecord::Schema.define(version: 20160113184531) do
   add_index "announcements", ["announcement_category_id"], name: "index_announcements_on_announcement_category_id", using: :btree
   add_index "announcements", ["user_id"], name: "index_announcements_on_user_id", using: :btree
 
-  create_table "galleries", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
+    t.integer  "announcement_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "announcement_id"
+    t.integer  "position"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  add_index "galleries", ["announcement_id"], name: "index_galleries_on_announcement_id", using: :btree
-
-  create_table "photos", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.binary   "data",       null: false
-    t.string   "filename"
-    t.string   "mime_type"
-    t.integer  "size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "photos", ["announcement_id"], name: "index_photos_on_announcement_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name",            limit: 30,                 null: false
