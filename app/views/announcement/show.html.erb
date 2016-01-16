@@ -24,10 +24,13 @@
         <td><%= @announcement.price_per_day%></td>
       </tr>
 
-
       <% @photos.each do |photo| %>
-        <%= photo.photos.image %>
-      <%end%>
+        <% if photo.announcement.id == @announcement.id %>
+          <td><%=image_tag photo.image %></td>
+        <%end%>
+      <% end %>
+
+
 
     </table>
     <h6>Utworzono: <%=@announcement.created_at%></h6>
