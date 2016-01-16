@@ -44,6 +44,7 @@ class AnnouncementController < ApplicationController
     @announcement = Announcement.new(announcement_param)
     @announcement.update_attributes(:user_id => session[:user_id])
     #   NIE DZIAŁA DODAWANIE ZDJĘCIA DO KATEGORII
+    puts "==================== #{gallery_param}"
     @gallery = Gallery.new(gallery_param)
     @gallery.update_attributes(:announcement_id => @announcement.id)
     # @gallery.update_attributes(gallery_param)
