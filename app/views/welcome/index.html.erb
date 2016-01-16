@@ -14,15 +14,24 @@
     </div>
     <br>
 
+
+
+
+
     <div class="row">
         <% @announcements.take(5).each do |announcement| %>
           <div class="alert alert-success">
             <div class="row">
               <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 text-left">
-                <%=image_tag('sample.png', size: "200x200")%>
+                <% @photos.each do |photo| %>
+                  <% if photo.announcement.id == announcement.id%>
+                    <td><%=image_tag(photo.image, size: "200x200")%></td>
+                    <% break %>
+                  <% end %>
+                <% end %>
               </div>
               <h3 class="col-xs-12 col-sm-5 col-md-7 col-lg-8 text-center">
-                <%= link_to("#{announcement.title}", {:controller => 'announcement', :action => 'show', :id => announcement.announcement_category_id, :class => "btn btn-lg btn-primary btn-block"}) %>
+                <%= link_to("#{announcement.title}", {:controller => 'announcement', :action => 'show', :id => announcement.id, :class => "btn btn-lg btn-primary btn-block"}) %>
                 <div class="row">
                   <h5><%= announcement.announcement_category.name%></h5>
                 </div>
