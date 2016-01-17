@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20160116071909) do
   end
 
   create_table "announcements", force: :cascade do |t|
-    t.integer  "announcement_category_id"
-    t.integer  "user_id"
+    t.integer  "announcement_category_id",             null: false
+    t.integer  "user_id",                              null: false
     t.string   "title",                    limit: 100, null: false
     t.text     "description",                          null: false
     t.integer  "price_per_hour",                       null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160116071909) do
   add_index "announcements", ["user_id"], name: "index_announcements_on_user_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "announcement_id"
+    t.integer  "announcement_id",    null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

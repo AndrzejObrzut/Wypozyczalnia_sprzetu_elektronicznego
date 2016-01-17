@@ -1,7 +1,7 @@
 class CreatePhotos < ActiveRecord::Migration
   def up
     create_table :photos do |t|
-      t.integer "announcement_id"
+      t.integer "announcement_id", :null => false
       t.attachment :image
       t.timestamps null: false
     end
