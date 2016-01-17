@@ -5,6 +5,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.attachment :image
       t.timestamps null: false
     end
+    add_foreign_key :photos, :announcements
     add_index("photos", "announcement_id")
   end
 

@@ -9,7 +9,9 @@ class CreateAnnouncements < ActiveRecord::Migration
       t.integer "price_per_day", :null => true
       t.timestamps null: false
     end
+    add_foreign_key :announcements, :announcement_categories
     add_index("announcements", "announcement_category_id")
+    add_foreign_key :announcements, :users
     add_index("announcements", "user_id")
 
 
