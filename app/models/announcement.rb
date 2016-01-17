@@ -1,7 +1,7 @@
 class Announcement < ActiveRecord::Base
   belongs_to :announcement_category, dependent: :destroy
-  belongs_to :user
-  has_many :photos
+  belongs_to :user, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
 
   validates :title,
