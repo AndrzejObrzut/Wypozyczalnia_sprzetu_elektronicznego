@@ -3,10 +3,10 @@ class CreateAnnouncementCategories < ActiveRecord::Migration
     create_table :announcement_categories do |t|
       t.string :name,         :null => false
       t.binary :image,         :null => false
-      t.string :filename
-      t.string :mime_type
-      t.integer :size
-      t.timestamps
+      t.string :filename,       :null => false
+      t.string :mime_type,     :null => false
+      t.integer :size,        :null => false
+      t.timestamps          :null => false
     end
   end
 
