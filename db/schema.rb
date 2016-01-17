@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160116071909) do
   create_table "announcement_categories", force: :cascade do |t|
     t.string   "name",       null: false
     t.binary   "image",      null: false
-    t.string   "filename",   null: false
-    t.string   "mime_type",  null: false
-    t.integer  "size",       null: false
+    t.string   "filename"
+    t.string   "mime_type"
+    t.integer  "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
