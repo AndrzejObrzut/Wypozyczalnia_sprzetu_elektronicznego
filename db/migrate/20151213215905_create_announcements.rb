@@ -9,9 +9,9 @@ class CreateAnnouncements < ActiveRecord::Migration
       t.integer "price_per_day", :null => false
       t.timestamps :null=>false
     end
-    add_foreign_key :announcements, :announcement_categories
+    add_foreign_key :announcements, :announcement_categories, on_delete: :cascade
     add_index("announcements", "announcement_category_id")
-    add_foreign_key :announcements, :users
+    add_foreign_key :announcements, :users, on_delete: :cascade
     add_index("announcements", "user_id")
 
 

@@ -1,5 +1,5 @@
 class Announcement < ActiveRecord::Base
-  belongs_to :announcement_category
+  belongs_to :announcement_category, dependent: :destroy
   belongs_to :user
   has_many :photos
 

@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160116071909) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["user_name"], name: "index_users_on_user_name", using: :btree
 
-  add_foreign_key "announcements", "announcement_categories"
-  add_foreign_key "announcements", "users"
+  add_foreign_key "announcements", "announcement_categories", on_delete: :cascade
+  add_foreign_key "announcements", "users", on_delete: :cascade
   add_foreign_key "photos", "announcements"
 end

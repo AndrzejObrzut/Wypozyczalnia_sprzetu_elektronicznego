@@ -1,5 +1,5 @@
 class AnnouncementCategory < ActiveRecord::Base
-  has_many :announcements
+  has_many :announcements, dependent: :destroy
 
 
 
