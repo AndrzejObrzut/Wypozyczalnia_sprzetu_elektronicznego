@@ -14,9 +14,40 @@
     </div>
     <br>
 
-
-
-
+<div class="grid">
+  <% @announcements.take(5).each do |announcement| %>
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <%= link_to({:controller => 'announcement', :action => 'show', :id => announcement.id}) do %>
+        <div class="imageContainer" style="color:black;">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+            <% @photos.each do |photo| %>
+              <% if photo.announcement.id == announcement.id%>
+              <br><br>
+                <td><%=image_tag(photo.image, size: "200x200")%></td>
+                <% break %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+            <div class="row">
+              <h2><%= announcement.title%></h2>
+            </div>
+            <div class="row">
+              <h5><%= announcement.announcement_category.name%></h5>
+            </div>
+            <div class="row">
+              <h5>Cena za godzinę: <%=announcement.price_per_hour %> zł</h5>
+            </div>
+            <div class="row">
+              <h5>Cena za dzień: <%=announcement.price_per_day %> zł</h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<!--
 
     <div class="row">
         <% @announcements.take(5).each do |announcement| %>
@@ -51,4 +82,4 @@
     </div>
   </div>
 
-</div>
+</div> -->
