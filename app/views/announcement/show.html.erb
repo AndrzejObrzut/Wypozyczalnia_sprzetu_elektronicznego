@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="backimg">
@@ -6,10 +7,10 @@
   </div>
   <div class="row">
     <h1><%= @announcement.title %></h1>
-    <table>
+    <table class="table table-striped table-bordered table-hover table-condensed">
       <tr>
         <th>Kategoria:</th>
-        <td><%= @announcement.announcement_category.name%></td>
+        <th><%= @announcement.announcement_category.name%></th>
       </tr>
       <tr>
         <th>Opis:</th>
@@ -29,8 +30,6 @@
             <td><%=image_tag photo.image %></td>
           <%end%>
       <% end %>
-
-
 
     </table>
     <h6>Utworzono: <%=@announcement.created_at%></h6>

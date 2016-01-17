@@ -1,13 +1,12 @@
-<%= form_for(:category, :url=> {:action => 'create'}) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div class="container">
+  <h1>Dodaj kategorię</h1>
+
+  <%= link_to("Wróć", {:action => 'index'}) %>
+
+  <%= form_for(:category, :url => {:action => "create"}) do |field|%>
+  <%= render(:partial => "form", :locals => {:field => field})%>
+  <div >
+    <%= submit_tag("Dodaj") %>
   </div>
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Upload" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
