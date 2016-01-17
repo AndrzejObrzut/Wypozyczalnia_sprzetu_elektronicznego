@@ -19,31 +19,33 @@ class AnnouncementController < ApplicationController
     @announcement = Announcement.new(announcement_param)
     @announcement.update_attributes(:user_id => session[:user_id])
 
+    if @announcement.save
+      @photo = Photo.new
+      @photo.update_attributes(:announcement_id => @announcement.id)
+      @photo.update_attributes(:image => params[:announcement][:image])
 
-    @photo = Photo.new
-    @photo.update_attributes(:announcement_id => @announcement.id)
-    @photo.update_attributes(:image => params[:announcement][:image])
+      @photo1 = Photo.new
+      @photo1.update_attributes(:announcement_id => @announcement.id)
+      @photo1.update_attributes(:image => params[:announcement][:image1])
 
-    @photo1 = Photo.new
-    @photo1.update_attributes(:announcement_id => @announcement.id)
-    @photo1.update_attributes(:image => params[:announcement][:image1])
+      @photo2 = Photo.new
+      @photo2.update_attributes(:announcement_id => @announcement.id)
+      @photo2.update_attributes(:image => params[:announcement][:image2])
 
-    @photo2 = Photo.new
-    @photo2.update_attributes(:announcement_id => @announcement.id)
-    @photo2.update_attributes(:image => params[:announcement][:image2])
+      @photo3 = Photo.new
+      @photo3.update_attributes(:announcement_id => @announcement.id)
+      @photo3.update_attributes(:image => params[:announcement][:image3])
 
-    @photo3 = Photo.new
-    @photo3.update_attributes(:announcement_id => @announcement.id)
-    @photo3.update_attributes(:image => params[:announcement][:image3])
-
-    @photo4 = Photo.new
-    @photo4.update_attributes(:announcement_id => @announcement.id)
-    @photo4.update_attributes(:image => params[:announcement][:image4])
+      @photo4 = Photo.new
+      @photo4.update_attributes(:announcement_id => @announcement.id)
+      @photo4.update_attributes(:image => params[:announcement][:image4])
+    end
 
 
     if @announcement.save and @photo.save
       redirect_to(:controller => 'welcome', :action => 'index')
     else
+      @announcement.destroy
       @categories = AnnouncementCategory.all
       render('add')
     end
@@ -74,7 +76,7 @@ class AnnouncementController < ApplicationController
     announcement = Announcement.find(params[:id]).destroy
     redirect_to(:action => 'index')
   end
-  
+
   def search
     @search_announcemets = Announcement.search(params[:search])
     render('search')
