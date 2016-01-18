@@ -1,37 +1,41 @@
-<%= form_for(:update_user, :url => {:action => "update", :id => @update_user.id}) do |update_user|%>
+<%= form_for(:update_parametrs, :url => {:action => "update", :id => @user.id}) do |user|%>
 
 <div class="container col-xs-4 col-xs-offset-4">
   <h1 class="text-center">Edycja</h1>
 
   <form role="form">
     <div class="form-group">
-      <%= error(@update_user) %>
+      <%= error(@user) %>
     </div>
     <div class="form-group">
-      <%= update_user.label(:email, "Email:") %>
+      <%= user.label(:email, "Email:") %>
       <br>
-      <%= update_user.label(:email, @update_user.email) %>
+      <%= user.label(:email, @user.email) %>
     </div>
     <div class="form-group">
-      <%= update_user.label(:user_name, "Nazwa użykownika:") %>
+      <%= user.label(:user_name, "Nazwa użykownika:") %>
       <br>
-      <%= update_user.label(:user_name, @update_user.user_name) %>
+      <%= user.label(:user_name, @user.user_name) %>
     </div>
     <div class="form-group">
-      <%= update_user.label(:first_name, "Imię:") %>
-      <%= update_user.text_field(:first_name, :class=>"form-control") %>
+      <%= user.label(:first_name, "Imię:") %>
+      <%= user.text_field(:first_name, :class=>"form-control") %>
     </div>
     <div class="form-group">
-      <%= update_user.label(:last_name, "Nazwisko:") %>
-      <%= update_user.text_field(:last_name, :class=>"form-control") %>
+      <%= user.label(:last_name, "Nazwisko:") %>
+      <%= user.text_field(:last_name, :class=>"form-control") %>
     </div>
     <div class="form-group">
-      <%= update_user.label(:phone, "Telefon:") %>
-      <%= update_user.telephone_field(:phone, :class=>"form-control") %>
+      <%= user.label(:phone, "Telefon:") %>
+      <%= user.telephone_field(:phone, :class=>"form-control") %>
     </div>
     <div class="form-group">
-      <%= update_user.label(:birth_date, "Data urodzenia:") %>
-      <%= update_user.date_select(:birth_date, order: [:day, :month, :year], start_year: 1900, end_year: 2016, :class=>"form-control") %>
+      <%= user.label(:birth_date, "Data urodzenia:") %>
+      <%= user.date_select(:birth_date, order: [:day, :month, :year], start_year: 1900, end_year: 2016, :class=>"form-control") %>
+    </div>
+    <div class="form-group">
+      <%= user.label(:regulations_accepted, "Regulamin zakceptowany:") %>
+      <%= user.label(:regulations_accepted, @user.regulations_accepted) %>
     </div>
 
 

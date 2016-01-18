@@ -5,7 +5,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.attachment :image,    :null=>false
       t.timestamps :null=>false
     end
-    add_foreign_key :photos, :announcements
+    add_foreign_key :photos, :announcements, on_delete: :cascade
     add_index("photos", "announcement_id")
   end
 

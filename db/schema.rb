@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20160116071909) do
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name",            limit: 30,                 null: false
-    t.string   "password_digest",                                 null: false
+    t.string   "password_digest"
     t.string   "first_name",           limit: 40,                 null: false
     t.string   "last_name",            limit: 40,                 null: false
     t.string   "email",                limit: 60,                 null: false
@@ -71,5 +71,5 @@ ActiveRecord::Schema.define(version: 20160116071909) do
 
   add_foreign_key "announcements", "announcement_categories", on_delete: :cascade
   add_foreign_key "announcements", "users", on_delete: :cascade
-  add_foreign_key "photos", "announcements"
+  add_foreign_key "photos", "announcements", on_delete: :cascade
 end

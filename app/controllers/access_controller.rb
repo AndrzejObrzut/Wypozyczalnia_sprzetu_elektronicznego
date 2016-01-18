@@ -1,7 +1,7 @@
 class AccessController < ApplicationController
 
   before_action :admin_login, only: [:users, :index]
-  before_action :verify_login, only: [:edit, :update, :change_password, :password]
+  before_action :verify_login, only: [:update, :change_password, :password]
 
   def index
   end
@@ -36,14 +36,15 @@ class AccessController < ApplicationController
 
   def give_admin
     @new_user = User.find(params[:id])
-    @new_user.update_attributes(:is_admin => "true")
+    @new_user.update_attributes(is_admin: true)
     redirect_to(:action=>'users')
   end
 
   def take_admin
     @new_user = User.find(params[:id])
-    @new_user.update_attributes(:is_admin => "false")
-    redirect_to(:action=>'users')
+    @new_user.is_admin = true
+    @new_user.save
+    # redirect_to(:action=>'users')
   end
 
   def registration
@@ -53,8 +54,6 @@ class AccessController < ApplicationController
   def users
     @users = User.sortNew
   end
-
-
 
   def create
     @create_new_user = User.new(new_user_parametrs)
@@ -70,15 +69,29 @@ class AccessController < ApplicationController
       render('registration')
     end
   end
+  #
+  # def edit
+  #   @user = User.find(params[:id])
+  # end
+  #
+  # def update
+  #   @user = User.find(params[:id])
+  #
+  #   if @user.update_attribute(update_parametrs)
+  #     redirect_to(:controller => 'welcome', :action=>'index')
+  #   else
+  #     flash[:notice] = "Niepoprawnie wypełnione pola"
+  #     render('edit')
+  #   end
+  # end
 
   def edit
-    @update_user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
-#CAN'T EDIT ANYTHING
   def update
-    @update_user = User.find(params[:id])
-    if @update_user.update_attributes(update_parametrs)
+    @user = User.find(params[:id])
+    if @user.update_attributes(update_parametrs)
       redirect_to(:controller => 'welcome', :action=>'index')
     else
       flash[:notice] = "Niepoprawnie wypełnione pola"
@@ -115,7 +128,7 @@ class AccessController < ApplicationController
   end
 
   def update_parametrs
-    params.require(:update_user).permit(:first_name, :last_name, :phone, :birth_date)
+    params.require(:update_user).permit(:user_name, :first_name, :second_name, :phone)
   end
 
   def update_password_parametrs
