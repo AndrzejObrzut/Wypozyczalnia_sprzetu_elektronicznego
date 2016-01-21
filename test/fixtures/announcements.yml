@@ -4,14 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  title: "one"
-  description: "test description"
-  price_per_hour: 10
-# column: value
-#
-two:
-  title: "two"
-  description: "test description"
-  price_per_hour: 10
-#  column: value
+# one:
+#   title: "one"
+#   description: "test description"
+#   price_per_hour: 10
+# # column: value
+# #
+# two:
+#   title: "two"
+#   description: "test description"
+#   price_per_hour: 10
+# #  column: value
