@@ -21,7 +21,13 @@
     <% @announcements.each do |announcement| %>
     <% if announcement.announcement_category_id == params[:id].to_i%>
       <tr>
-          <th><%=image_tag('sample.png', size: "200x200")%></th>
+          <% @photos.each do |photo| %>
+            <% if photo.announcement.id == announcement.id%>
+            <br><br>
+              <td><%=image_tag(photo.image, :class => "product_img")%></td>
+              <% break %>
+            <% end %>
+          <% end %>
           <th><font size="4"><%= announcement.title %></font></th>
           <th><%= announcement.description %></th>
           <th><%= announcement.price_per_hour %></th>

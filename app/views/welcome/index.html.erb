@@ -5,8 +5,8 @@
     <div class="grid">
       <div class="row">
         <% @categories.each do |category| %>
-          <div  class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <%= link_to image_tag(url_for(:controller => "announcement_categories", :action => "show", :id => category.id), size: "200x200", alt: category.name), {:controller => 'announcement', :action => 'view_by_category', :id => category.id}%>
+          <div  class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="icon">
+            <%= link_to image_tag(url_for(:controller => "announcement_categories", :action => "show", :id => category.id), :class => "icon-photo",alt: category.name), {:controller => 'announcement', :action => 'view_by_category', :id => category.id}%>
           </div>
         <% end %>
     </div>
@@ -22,7 +22,7 @@
             <% @photos.each do |photo| %>
               <% if photo.announcement.id == announcement.id%>
               <br><br>
-                <td><%=image_tag(photo.image, size: "200x200")%></td>
+                <td><%=image_tag(photo.image, :class => "product_img")%></td>
                 <% break %>
               <% end %>
             <% end %>

@@ -87,6 +87,7 @@ class AnnouncementController < ApplicationController
     @announcements = Announcement.sortNew
     @announcements_all = Announcement.all
     @category = AnnouncementCategory.find(params[:id])
+    @photos = Photo.all
   end
 
   # Pokaż dane ogłoszenie
