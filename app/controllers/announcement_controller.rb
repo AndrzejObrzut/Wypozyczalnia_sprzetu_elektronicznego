@@ -79,6 +79,7 @@ class AnnouncementController < ApplicationController
 
   def search
     @search_announcemets = Announcement.search(params[:search])
+    @photos = Photo.all
     render('search')
   end
 
