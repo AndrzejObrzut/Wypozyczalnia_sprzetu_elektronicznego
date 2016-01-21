@@ -1,7 +1,7 @@
 class AccessController < ApplicationController
 
   before_action :admin_login, only: [:users, :index]
-  before_action :verify_login, only: [:update, :change_password, :password]
+  before_action :verify_login, only: [:change_password, :password]
 
   def index
   end
@@ -36,14 +36,22 @@ class AccessController < ApplicationController
 
   def give_admin
     @new_user = User.find(params[:id])
-    @new_user.update_attributes(is_admin: true)
-    redirect_to(:action=>'users')
+    if @new_user.update_attributes(is_admin: true)
+      redirect_to(:action=>'users')
+    else
+      redirect_to(:controller => 'welcome', :action => 'index')
+      puts @new_user.errors.full_messages
+    end
   end
 
   def take_admin
     @new_user = User.find(params[:id])
-    @new_user.is_admin = true
-    @new_user.save
+    if @new_user.update_attributes(is_admin: false)
+      redirect_to(:action=>'users')
+    else
+      redirect_to(:controller => 'welcome', :action => 'index')
+      puts @new_user.errors.full_messages
+    end
     # redirect_to(:action=>'users')
   end
 
@@ -69,21 +77,6 @@ class AccessController < ApplicationController
       render('registration')
     end
   end
-  #
-  # def edit
-  #   @user = User.find(params[:id])
-  # end
-  #
-  # def update
-  #   @user = User.find(params[:id])
-  #
-  #   if @user.update_attribute(update_parametrs)
-  #     redirect_to(:controller => 'welcome', :action=>'index')
-  #   else
-  #     flash[:notice] = "Niepoprawnie wypełnione pola"
-  #     render('edit')
-  #   end
-  # end
 
   def edit
     @user = User.find(params[:id])
@@ -91,12 +84,16 @@ class AccessController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
     if @user.update_attributes(update_parametrs)
       redirect_to(:controller => 'welcome', :action=>'index')
     else
       flash[:notice] = "Niepoprawnie wypełnione pola"
+      puts "====================="
+      puts @user.errors.full_messages
       render('edit')
     end
+
   end
 
   def change_password
@@ -128,7 +125,7 @@ class AccessController < ApplicationController
   end
 
   def update_parametrs
-    params.require(:update_user).permit(:user_name, :first_name, :second_name, :phone)
+    params.require(:update_parametrs).permit(:first_name, :last_name, :phone)
   end
 
   def update_password_parametrs

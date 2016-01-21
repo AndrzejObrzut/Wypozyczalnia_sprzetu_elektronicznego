@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
             presence: {:message => "Proszę wpisać nazwę użytkownika"}
 
 
-  validates :password,
-            presence: true,
-            confirmation: {:message => "Proszę wpisać hasło i poprawnie go potwierdzić"}
+  # validates :password,
+  #           presence: true,
+  #           confirmation: {:message => "Proszę wpisać hasło i poprawnie go potwierdzić"}
 
 
   validates :first_name,
@@ -27,10 +27,10 @@ class User < ActiveRecord::Base
   validates :birth_date,
             presence: {:message => "Proszę wybrać datę urodzenia"}
 
-            def age
-              now = Date.today
-              age = now - birth_date
-            end
+  def age
+    now = Date.today
+    age = now - birth_date
+  end
 
   validates :age,
             :numericality => {:greater_than_or_equal_to  => 6574, :message => "Tylko osoby pełnoletnie mogą korzystać z portalu"}
