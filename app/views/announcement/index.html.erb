@@ -41,7 +41,7 @@
           <td><%=announcement.price_per_day%></td>
           <td><%=announcement.created_at%></td>
           <td><%=announcement.updated_at%></td>
-          <td>
+          <td style="padding-top:15px;">
             <%= link_to("Pokaż", {:action => 'show', :id => announcement.id}, :class=>"btn btn-xs btn-primary")%>
             <br><br>
             <%= link_to("Edycja", {:action => 'edit', :id => announcement.id}, :class=>"btn btn-xs btn-primary")%>

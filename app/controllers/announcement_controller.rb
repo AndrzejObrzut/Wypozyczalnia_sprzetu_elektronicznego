@@ -64,7 +64,11 @@ class AnnouncementController < ApplicationController
       redirect_to(:action=>'index', :id => @announcement.id)
     else
       @categories = AnnouncementCategory.all
-      render('edit')
+      if session[:user].is_admin
+        render('edit')
+      else
+        render('show_user_announcement')
+      end
     end
   end
 
@@ -99,6 +103,7 @@ class AnnouncementController < ApplicationController
 
   def show_user_announcement
     @announcements = Announcement.sortNew
+    @photos = Photo.all
   end
 
   def announcement_param
