@@ -3,11 +3,14 @@
   <h1>Ogłoszenia</h1>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2", style="padding-bottom:8px;">
       Ilość ogłoszeń: <%=@announcements.size%>
     </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3", style="padding-bottom:8px;">
       <%= link_to("Dodaj ogłoszenie", {:controller => 'announcement', :action => 'add', :id => session[:user_id]}, :class=>"btn btn-info")%>
+    </div>
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3", style="padding-bottom:8px;">
+      <%= link_to("Panel zarządzania", {:controller => 'access', :action => 'index'}, :class=>"btn btn-info") %>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
       <%= form_tag({:controller => "announcement", :action => "search"}, :method => "get") do %>

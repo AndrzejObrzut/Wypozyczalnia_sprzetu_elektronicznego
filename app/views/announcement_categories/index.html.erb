@@ -6,9 +6,11 @@
     Ilość kategorii: <%= @categories.size%>
   </p>
 
-  <p>
+  <div class="row", style="padding-bottom:10px;">
     <%= link_to("Dodaj kategorię", {:controller => 'announcement_categories', :action => 'new'}, :class=>"btn btn-info")%>
-  </p>
+    <%= link_to("Panel zarządzania", {:controller => 'access', :action => 'index'}, :class=>"btn btn-info") %>
+  </div>
+
 
   <table class="table table-striped table-bordered table-hover table-condensed">
     <tr>
@@ -41,7 +43,5 @@
     <% end %>
 
   </table>
-
-  <%= link_to("Panel zarządzania", {:controller => 'access', :action => 'index'}, :class=>"btn btn-info") %>
 </div>
 </center>
