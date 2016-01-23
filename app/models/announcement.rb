@@ -23,7 +23,7 @@ class Announcement < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('title LIKE ? or description LIKE ?', '%' + search + '%', '%' + search + '%')
+      where('title ILIKE ? or description ILIKE ?', '%' + search + '%', '%' + search + '%')
     else
       all
     end
