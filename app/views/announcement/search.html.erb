@@ -1,40 +1,24 @@
+
+
 <div class="container">
-  <div class="text-center">
-        <h1><b>
-          Wyniki wyszukiwania dla <%= params[:search]%>
-        </b></h1>
-  </div>
-  <!-- Whole div is a link -->
+  <h2 class="text-center" style="margin: 30px 0">Wyniki wyszukiwania dla <%= params[:search]%></h2>
   <% @search_announcemets.each do |announcement| %>
-    <%= link_to({:controller => 'announcement', :action => 'show', :id => announcement.id}) do %>
-      <div class="container col-xs-10 col-xs-offset-1">
-        <!-- announcement -->
-        <div class="row">
-          <!-- photo -->
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <% @photos.each do |photo| %>
-              <% if photo.announcement.id == announcement.id%>
-              <br><br>
-                <td><%=image_tag(photo.image, :class => "product_img")%></td>
-                <% break %>
-              <% end %>
+      <%= link_to({:controller => 'announcement', :action => 'show', :id => announcement.id}, style: "text-decoration:none;") do %>
+        <div class="col-xs-12 col-sm-6 col-md-4" style="margin-bottom: 15px;">
+          <% @photos.each do |photo| %>
+            <% if photo.announcement.id == announcement.id%>
+              <div class="img-thumbnail" style="height: 300px; overflow: hidden;">
+                <%=image_tag(photo.image, :class => "product_img2")%>
+              </div>
+              <% break %>
             <% end %>
-          </div>
-          <!-- tilte and prices -->
-          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-            <div class="row", style="padding-top:50px;">
-              <%= announcement.title %>
-            </div>
-            <div class="row">
-              <%= announcement.price_per_hour %>
-            </div>
-            <div class="row">
-              <%= announcement.price_per_day %>
-            </div>
+          <% end %>
+          <div class="text-center">
+            <h3><%= announcement.title %></h3>
+            <h5>Cena za godzinę: <b><%=announcement.price_per_hour %> zł</b></h5>
+            <h5>Cena za dzień: <b><%=announcement.price_per_day %> zł</b></h5>
           </div>
         </div>
-    </div>
-    <% end %>
+      <% end %>
   <% end %>
-
 </div>
