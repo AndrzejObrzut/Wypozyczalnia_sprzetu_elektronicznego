@@ -6,43 +6,50 @@
     </div>
   </div>
 
-  <!-- Tilte -->
-  <div class="row", style="text-align:center;">
-    <h1><%= @announcement.title %></h1>
-  </div>
   <!-- description and prices -->
   <div class="row">
+
     <!-- description -->
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-      <h3 style="text-align:center;"> OPIS </h3>
-      <%= @announcement.description%>
+      <div class="jumbotron jumbotron-fluid" style="margin-top: 15px;">
+        <div class="container">
+          <h2 class="display-3"><%= @announcement.title %></h2>
+          <p class="lead"><%= @announcement.description%></p>
+          <h3><span class="label label-pill label-primary">Cena za godzine: <%= @announcement.price_per_hour%>zł</span></h3>
+          <h3><span class="label label-pill label-success">Cena za dzień: <%= @announcement.price_per_day%>zł</span></h3>
+        </div>
+      </div>
     </div>
     <!-- prices -->
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <!-- price_per_hour -->
-      <div class="row", style="text-align:right;">
-        <h4 > Cena za godzine </h4>
-        <%= @announcement.price_per_hour%>
-      </div>
-      <!-- price_per_day -->
-      <div class="row", style="text-align:right;">
-        <h4> Cena za dzień </h4>
-        <%= @announcement.price_per_day%>
+      <!-- Display all photos - nice to see gallery ;D -->
+      <div class="row">
+        <% @photos.each do |photo| %>
+            <% if photo.announcement.id == @announcement.id%>
+              <%=image_tag photo.image, style: "width:100%; margin: 2px 0;" %>
+            <%end%>
+        <% end %>
+        <h6 class="text-right">Utworzono: <%=@announcement.created_at%></h6>
+        <h6 class="text-right">Utworzono: <%=@announcement.updated_at%></h6>
       </div>
     </div>
   </div>
-  <div class="row", style="text-align:right; padding-top:25px;">
-    <h6>Utworzono: <%=@announcement.created_at%></h6>
-    <h6>Utworzono: <%=@announcement.updated_at%></h6>
-  </div>
-  <!-- Display all photos - nice to see gallery ;D -->
-  <div class="row", style="text-align:center;">
-    <% @photos.each do |photo| %>
-        <% if photo.announcement.id == @announcement.id%>
-          <td><%=image_tag photo.image %></td>
-        <%end%>
-    <% end %>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- fotter -->
   <div class="row", style="padding-top:50px;">
 
