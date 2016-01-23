@@ -6,13 +6,7 @@ class AnnouncementCategoryTest < ActiveSupport::TestCase
   end
 
   def the_count_of_announcment_category
-    category = AnnouncementCategory.new(name: "Category_name",
-                                        image: 100101010101010101,
-                                        filename: "Category_name.png",
-                                        mime_type: "image/png",
-                                        size: 108)
-
-    category.save
+    category = FactoryGirl.create(:announcement_category)
 
     assert_equal(category.errors.messages, {})
     assert_equal(AnnouncementCategory.count, 1)

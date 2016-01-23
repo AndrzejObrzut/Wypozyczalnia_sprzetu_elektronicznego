@@ -7,6 +7,7 @@ class AnnouncementTest < ActiveSupport::TestCase
 
   def test_create_announcment
 
+    
     @category = AnnouncementCategory.new(name: "Category_name",
                                         image: 100101010101010101,
                                         filename: "Category_name.png",
