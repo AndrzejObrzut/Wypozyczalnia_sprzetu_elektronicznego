@@ -41,6 +41,7 @@ gem 'paperclip', '~> 4.3', '>= 4.3.2'
 
 gem 'factory_girl', '~> 4.5'
 gem 'factory_girl_rails', '~> 4.5'
+gem 'puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
