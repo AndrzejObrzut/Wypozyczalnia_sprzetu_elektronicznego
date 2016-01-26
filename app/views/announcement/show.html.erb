@@ -17,6 +17,10 @@
           <p class="lead"><%= @announcement.description%></p>
           <h3><span class="label label-pill label-primary">Cena za godzine: <%= @announcement.price_per_hour%>zł</span></h3>
           <h3><span class="label label-pill label-success">Cena za dzień: <%= @announcement.price_per_day%>zł</span></h3>
+          <h4 style="padding-top:5px;">Kontakt: <%=@announcement.user.first_name%></h4>
+          <h5>E-mail: <%=@announcement.user.email%></h5>
+          <h6>Na WSE od: <%=@announcement.user.created_at %></h6>
+
         </div>
       </div>
     </div>
